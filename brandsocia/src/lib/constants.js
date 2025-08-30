@@ -13,3 +13,10 @@ export const SOCIAL_LINKS = [
   { name: 'Facebook', href: '#', icon: 'facebook' },
   { name: 'Instagram', href: '#', icon: 'instagram' }
 ]
+
+export const COMPANY_INFO = {
+  name: 'BrandSocia',
+  email: 'hello@brandsocia.com',
+  phone: '+1 (555) 123-4567',
+  address: '123 Digital Street, Tech City, TC 12345'
+}

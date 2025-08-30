@@ -6,42 +6,42 @@ const posts = [
     excerpt: 'Discover the latest social media trends that will shape your marketing strategy this year.',
     date: 'April 15, 2023',
     slug: 'social-media-trends-2023',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'How to Build a Strong Brand Identity',
     excerpt: 'Learn the key elements of a compelling brand identity that resonates with your audience.',
     date: 'March 28, 2023',
     slug: 'building-brand-identity',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'The Importance of Mobile-First Design',
     excerpt: 'Why mobile optimization should be a priority for every business in the digital age.',
     date: 'March 10, 2023',
     slug: 'mobile-first-design',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'Content Marketing Strategies That Convert',
     excerpt: 'Effective content marketing approaches that drive engagement and conversions.',
     date: 'February 22, 2023',
     slug: 'content-marketing-strategies',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'UX Design Principles for Better Conversion',
     excerpt: 'How thoughtful UX design can significantly improve your conversion rates.',
     date: 'February 15, 2023',
     slug: 'ux-design-principles',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'Email Marketing Best Practices',
     excerpt: 'Tips and strategies for creating effective email marketing campaigns.',
     date: 'January 30, 2023',
     slug: 'email-marketing-best-practices',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   }
 ]
 

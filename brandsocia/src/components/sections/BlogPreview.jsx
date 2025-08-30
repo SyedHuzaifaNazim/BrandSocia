@@ -6,19 +6,19 @@ const posts = [
     title: '10 Social Media Trends for 2023',
     excerpt: 'Discover the latest social media trends that will shape your marketing strategy this year.',
     date: 'April 15, 2023',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'How to Build a Strong Brand Identity',
     excerpt: 'Learn the key elements of a compelling brand identity that resonates with your audience.',
     date: 'March 28, 2023',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   },
   {
     title: 'The Importance of Mobile-First Design',
     excerpt: 'Why mobile optimization should be a priority for every business in the digital age.',
     date: 'March 10, 2023',
-    image: '/api/placeholder/400/250'
+    image: 'https://via.placeholder.com/400x250'
   }
 ]
 

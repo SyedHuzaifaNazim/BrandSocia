@@ -5,17 +5,17 @@ const projects = [
   {
     title: 'E-commerce Redesign',
     category: 'Web Design',
-    image: '/api/placeholder/400/300'
+    image: 'https://via.placeholder.com/400/300'
   },
   {
     title: 'Brand Identity',
     category: 'Branding',
-    image: '/api/placeholder/400/300'
+    image: 'https://via.placeholder.com/400/300'
   },
   {
     title: 'Social Campaign',
     category: 'Social Media',
-    image: '/api/placeholder/400/300'
+    image: 'https://via.placeholder.com/400/300'
   }
 ]
 

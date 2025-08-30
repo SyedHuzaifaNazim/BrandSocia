@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ['brandsocia.com', 'via.placeholder.com', 'images.unsplash.com'],
+    unoptimized: true, // Add this if you're having image optimization issues
+  },
+}
 
 export default nextConfig;

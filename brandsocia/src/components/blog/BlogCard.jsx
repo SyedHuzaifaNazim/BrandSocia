@@ -1,15 +1,23 @@
 import Card from '@/components/ui/Card'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function BlogCard({ post }) {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="h-48 bg-gray-200">
-        <img 
-          src={post.image} 
-          alt={post.title}
-          className="w-full h-full object-cover"
-        />
+      <div className="h-48 bg-gray-200 relative">
+        {post.image ? (
+          <Image 
+            src={post.image} 
+            alt={post.title}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-500">No image</span>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <p className="text-sm text-gray-500 mb-2">{post.date}</p>
