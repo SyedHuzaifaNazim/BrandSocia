@@ -2,7 +2,7 @@ import Button from '@/components/ui/Button'
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
+    <section className="gradient-bg text-white py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -15,7 +15,7 @@ export default function Hero() {
             <Button href="/services" variant="secondary">
               Our Services
             </Button>
-            <Button href="/contact" variant="outline">
+            <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white hover:text-primary-500">
               Get in Touch
             </Button>
           </div>

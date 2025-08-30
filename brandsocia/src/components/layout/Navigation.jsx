@@ -30,13 +30,13 @@ export default function Navigation() {
             href={link.href}
             className={`relative px-3 py-2 font-medium transition-colors duration-200 ${
               isActive(link.href)
-                ? 'text-primary font-semibold'
-                : 'text-dark hover:text-primary'
+                ? 'text-primary-600 font-semibold'
+                : 'text-dark hover:text-primary-500'
             }`}
           >
             {link.label}
             {isActive(link.href) && (
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"></span>
             )}
           </Link>
         ))}
@@ -44,7 +44,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden p-2 rounded-md text-dark hover:text-primary transition-colors"
+        className="md:hidden p-2 rounded-md text-dark hover:text-primary-500 transition-colors"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle mobile menu"
       >
@@ -86,7 +86,7 @@ export default function Navigation() {
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b">
-                <span className="text-xl font-bold text-primary">Menu</span>
+                <span className="text-xl font-bold text-primary-600">Menu</span>
                 <button
                   onClick={closeMobileMenu}
                   className="p-2 rounded-md hover:bg-gray-100 transition-colors"
@@ -118,8 +118,8 @@ export default function Navigation() {
                         onClick={closeMobileMenu}
                         className={`block px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-200 ${
                           isActive(link.href)
-                            ? 'bg-primary text-white'
-                            : 'text-dark hover:bg-gray-100 hover:text-primary'
+                            ? 'bg-primary-500 text-white'
+                            : 'text-dark hover:bg-primary-50 hover:text-primary-600'
                         }`}
                       >
                         {link.label}
@@ -134,7 +134,7 @@ export default function Navigation() {
                 <div className="flex space-x-4 justify-center">
                   <a
                     href="#"
-                    className="p-2 text-gray-600 hover:text-primary transition-colors"
+                    className="p-2 text-gray-600 hover:text-primary-500 transition-colors"
                     aria-label="Twitter"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -143,7 +143,7 @@ export default function Navigation() {
                   </a>
                   <a
                     href="#"
-                    className="p-2 text-gray-600 hover:text-primary transition-colors"
+                    className="p-2 text-gray-600 hover:text-primary-500 transition-colors"
                     aria-label="LinkedIn"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -152,7 +152,7 @@ export default function Navigation() {
                   </a>
                   <a
                     href="#"
-                    className="p-2 text-gray-600 hover:text-primary transition-colors"
+                    className="p-2 text-gray-600 hover:text-primary-500 transition-colors"
                     aria-label="Facebook"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ export default function Navigation() {
                   </a>
                   <a
                     href="#"
-                    className="p-2 text-gray-600 hover:text-primary transition-colors"
+                    className="p-2 text-gray-600 hover:text-primary-500 transition-colors"
                     aria-label="Instagram"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

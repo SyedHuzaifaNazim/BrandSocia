@@ -1,3 +1,4 @@
+import Header from '@/components/layout/Header'
 import Hero from '@/components/sections/Hero'
 import ServiceGrid from '@/components/sections/ServiceGrid'
 import PortfolioPreview from '@/components/sections/PortfolioPreview'
@@ -7,6 +8,7 @@ import ContactCTA from '@/components/sections/ContactCTA'
 export default function Home() {
   return (
     <>
+      <Header />
       <Hero />
       <ServiceGrid />
       <PortfolioPreview />
