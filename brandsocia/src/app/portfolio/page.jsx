@@ -6,42 +6,42 @@ const projects = [
     title: 'E-commerce Redesign',
     category: 'Web Design',
     description: 'Complete redesign of an online store with improved user experience and increased conversion rates.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   },
   {
     title: 'Brand Identity',
     category: 'Branding',
     description: 'Development of a comprehensive brand identity system for a tech startup.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   },
   {
     title: 'Social Media Campaign',
     category: 'Social Media',
     description: 'Multi-platform social media campaign that increased engagement by 150%.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   },
   {
     title: 'Content Strategy',
     category: 'Content Marketing',
     description: 'Development and implementation of a content strategy that boosted organic traffic.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   },
   {
     title: 'SEO Optimization',
     category: 'SEO',
     description: 'Technical SEO overhaul that improved search rankings for key terms.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   },
   {
     title: 'Mobile App Design',
     category: 'UI/UX Design',
     description: 'User-centered design for a mobile application with intuitive navigation.',
-    image: 'https://via.placeholder.com/600x400',
+    image: '/api/placeholder/600/400',
     link: '#'
   }
 ]
