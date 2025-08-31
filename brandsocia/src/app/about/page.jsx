@@ -11,7 +11,8 @@ export default function About() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16" >
+          <img src="" alt="" srcset="" />
           <div>
             <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
             <p className="text-gray-600 mb-4">

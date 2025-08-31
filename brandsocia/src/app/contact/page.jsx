@@ -37,7 +37,7 @@ export default function Contact() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-black-600">
             Have a project in mind? Want to learn more about our services? We'd love to hear from you.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function Contact() {
               
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-black-700 mb-1">
                     Name *
                   </label>
                   <input
@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-black-700 mb-1">
                     Email *
                   </label>
                   <input
@@ -93,7 +93,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-black-700 mb-1">
                     Message *
                   </label>
                   <textarea
@@ -107,7 +107,7 @@ export default function Contact() {
                   ></textarea>
                 </div>
                 
-                <Button type="submit" variant="primary" className="w-full">
+                <Button type="submit" variant="primary" className="w-full text-black">
                   Send Message
                 </Button>
               </form>
@@ -131,7 +131,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Address</h3>
-                    <p className="text-gray-600">123 Digital Street, Tech City, TC 12345</p>
+                    <p className="text-gray-600">ICMA, Gulshan-e-Iqbal, Karachi, Pakistan.</p>
                   </div>
                 </div>
                 
@@ -143,7 +143,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+92 328 1234567</p>
                   </div>
                 </div>
                 
@@ -155,7 +155,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600">hello@brandsocia.com</p>
+                    <p className="text-gray-600">contact@brandsocia.com</p>
                   </div>
                 </div>
               </div>

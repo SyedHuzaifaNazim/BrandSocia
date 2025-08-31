@@ -16,7 +16,7 @@ export const SOCIAL_LINKS = [
 
 export const COMPANY_INFO = {
   name: 'BrandSocia',
-  email: 'hello@brandsocia.com',
-  phone: '+1 (555) 123-4567',
-  address: '123 Digital Street, Tech City, TC 12345'
+  email: 'contact@brandsocia.com',
+  phone: '+92 328 1234567',
+  address: 'ICMA ,Guslshan-e-Iqbal, Karachi, Pakistan'
 }
