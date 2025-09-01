@@ -187,7 +187,7 @@ export default function Navigation({ isScrolled }) {
                         block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300
                         transform hover:translate-x-2
                         ${isActive(link.href)
-                          ? 'bg-primary-500 text-white shadow-md'
+                          ? 'bg-primary-500 text-black shadow-md'
                           : 'text-dark hover:bg-primary-50 hover:text-primary-600'
                         }
                       `}
@@ -204,7 +204,7 @@ export default function Navigation({ isScrolled }) {
               <Link
                 href="/contact"
                 onClick={closeMobileMenu}
-                className="block w-full text-center px-6 py-3 bg-primary-500 text-white rounded-lg 
+                className="block w-full text-center px-6 py-3 bg-primary-500 text-black rounded-lg 
                          font-semibold transition-all duration-300 hover:bg-primary-600 hover:shadow-md"
               >
                 Start Your Project
