@@ -1,11 +1,11 @@
 @import "tailwindcss";
 /* Ensure video doesn't cause horizontal scroll */
-video {
+/* video {
   max-width: 100%;
-}
+} */
 
 /* Mobile optimization */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hero-section {
     height: 80vh !important;
   }
@@ -13,4 +13,4 @@ video {
   .hero-video {
     object-position: center center;
   }
-}
+} */
