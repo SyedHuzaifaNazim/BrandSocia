@@ -7,6 +7,15 @@ export const NAV_LINKS = [
   { href: '/contact', label: 'Contact' }
 ]
 
+export const SERVICES = [
+  { href: '/services/web-development', label: 'Web Development' },
+  { href: '/services/seo', label: 'SEO' },
+  { href: '/services/digital-marketing', label: 'Digital Marketing' },
+  { href: '/services/social-media-marketing', label: 'Social Media Marketing' },
+  { href: '/services/graphic-designing', label: 'Graphic Designing' },
+  { href: '/services/logo-designing', label: 'Logo Designing' }
+]
+
 export const SOCIAL_LINKS = [
   { name: 'Twitter', href: '#', icon: 'twitter' },
   { name: 'LinkedIn', href: '#', icon: 'linkedin' },

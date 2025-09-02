@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Card from '@/components/ui/Card'
+import {Card} from '@/components/ui/Card'
 
 // This would typically come from a CMS or database
 const blogPosts = {

@@ -1,4 +1,4 @@
-import Card from '@/components/ui/Card'
+import {Card} from '@/components/ui/Card'
 import Link from 'next/link'
 
 export default function BlogCard({ post }) {
