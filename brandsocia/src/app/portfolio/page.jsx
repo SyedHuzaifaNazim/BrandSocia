@@ -6,42 +6,42 @@ const projects = [
     title: 'E-commerce Redesign',
     category: 'Web Design',
     description: 'Complete redesign of an online store with improved user experience and increased conversion rates.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   },
   {
     title: 'Brand Identity',
     category: 'Branding',
     description: 'Development of a comprehensive brand identity system for a tech startup.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   },
   {
     title: 'Social Media Campaign',
     category: 'Social Media',
     description: 'Multi-platform social media campaign that increased engagement by 150%.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   },
   {
     title: 'Content Strategy',
     category: 'Content Marketing',
     description: 'Development and implementation of a content strategy that boosted organic traffic.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   },
   {
     title: 'SEO Optimization',
     category: 'SEO',
     description: 'Technical SEO overhaul that improved search rankings for key terms.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   },
   {
     title: 'Mobile App Design',
     category: 'UI/UX Design',
     description: 'User-centered design for a mobile application with intuitive navigation.',
-    image: '/api/placeholder/600/400',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
     link: '#'
   }
 ]
