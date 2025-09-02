@@ -7,7 +7,7 @@ const blogPosts = {
     title: '10 Social Media Trends for 2023',
     date: 'April 15, 2023',
     author: 'Jane Smith',
-    image: 'https://via.placeholder.com/800x400',
+    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     content: `
       <p>Social media continues to evolve at a rapid pace, and staying ahead of the trends is crucial for brands looking to maintain a strong online presence. Here are the top 10 social media trends to watch in 2023:</p>
       
@@ -33,7 +33,7 @@ const blogPosts = {
     title: 'How to Build a Strong Brand Identity',
     date: 'March 28, 2023',
     author: 'John Doe',
-    image: 'https://via.placeholder.com/800x400',
+    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     content: `
       <p>A strong brand identity is crucial for standing out in today's competitive market. It's more than just a logo—it's the entire experience your customers have with your company. Here's how to build a compelling brand identity:</p>
       
