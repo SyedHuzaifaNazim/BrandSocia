@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
+import Header from '@/components/layout/Header'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -33,6 +34,8 @@ export default function Contact() {
   }
   
   return (
+    <>
+    <Header/>
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -182,5 +185,6 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    </>
   )
 }
