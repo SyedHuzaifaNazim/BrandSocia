@@ -5,17 +5,17 @@ const projects = [
   {
     title: 'E-commerce Redesign',
     category: 'Web Design',
-    image: 'https://via.placeholder.com/400/300'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'
   },
   {
     title: 'Brand Identity',
     category: 'Branding',
-    image: 'https://via.placeholder.com/400/300'
+    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'
   },
   {
     title: 'Social Campaign',
     category: 'Social Media',
-    image: 'https://via.placeholder.com/400/300'
+    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'
   }
 ]
 
