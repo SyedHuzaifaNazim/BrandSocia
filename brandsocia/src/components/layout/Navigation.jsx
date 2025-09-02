@@ -8,18 +8,23 @@ import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants'
 export default function Navigation({ isScrolled }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeHover, setActiveHover] = useState(null)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
+    setMounted(true)
     // Prevent body scroll when mobile menu is open
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
+      document.documentElement.style.overflow = 'auto'
     }
 
     return () => {
       document.body.style.overflow = 'auto'
+      document.documentElement.style.overflow = 'auto'
     }
   }, [isMobileMenuOpen])
 
@@ -58,6 +63,23 @@ export default function Navigation({ isScrolled }) {
     )
   }
 
+  if (!mounted) {
+    return (
+      <>
+        <nav className="hidden md:flex items-center space-x-6">
+          {NAV_LINKS.map((link) => (
+            <div key={link.href} className="px-3 py-2 opacity-0">
+              {link.label}
+            </div>
+          ))}
+        </nav>
+        <button className="md:hidden p-2 rounded-md opacity-0">
+          <div className="w-6 h-6"></div>
+        </button>
+      </>
+    )
+  }
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -75,17 +97,16 @@ export default function Navigation({ isScrolled }) {
             }`}
             onMouseEnter={() => setActiveHover(link.href)}
             onMouseLeave={() => setActiveHover(null)}
+            aria-current={isActive(link.href) ? 'page' : undefined}
           >
             {link.label}
             
-            {/* Animated underline */}
             <span className={`
               absolute bottom-0 left-0 h-0.5 bg-primary-500 transition-all duration-300
               ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}
               ${activeHover === link.href ? 'w-full' : ''}
             `}></span>
             
-            {/* Hover effect circle */}
             <span className={`
               absolute -inset-2 rounded-full bg-primary-100 opacity-0 transition-all duration-300
               group-hover:opacity-100 scale-75 group-hover:scale-100
@@ -94,12 +115,11 @@ export default function Navigation({ isScrolled }) {
           </Link>
         ))}
         
-        {/* CTA Button */}
         <Link
           href="/contact"
-          className="ml-4 px-6 py-2 bg-primary-500 text-black rounded-full font-semibold 
+          className="ml-4 px-6 py-2.5 bg-primary-500 text-white rounded-full font-semibold 
                    transition-all duration-300 hover:bg-primary-600 hover:shadow-lg 
-                   hover:-translate-y-0.5"
+                   hover:-translate-y-0.5 shadow-md hover:shadow-primary-200/50"
         >
           Get Started
         </Link>
@@ -107,17 +127,19 @@ export default function Navigation({ isScrolled }) {
 
       {/* Mobile Menu Button */}
       <button
-        className={`md:hidden p-2 rounded-md transition-all duration-300 ${
+        className={`md:hidden p-2 rounded-md transition-all duration-300 relative ${
           isScrolled 
             ? 'text-dark hover:text-primary-500' 
             : 'text-white hover:text-primary-300'
         }`}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        onTouchStart={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle mobile menu"
+        aria-expanded={isMobileMenuOpen}
       >
         <div className="w-6 h-6 flex flex-col justify-center items-center relative">
           <span className={`
-            block w-6 h-0.5 bg-current transition-all duration-300
+            block w-6 h-0.5 bg-current transition-all duration-300 transform
             ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}
           `}></span>
           <span className={`
@@ -125,7 +147,7 @@ export default function Navigation({ isScrolled }) {
             ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}
           `}></span>
           <span className={`
-            block w-6 h-0.5 bg-current transition-all duration-300
+            block w-6 h-0.5 bg-current transition-all duration-300 transform
             ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}
           `}></span>
         </div>
@@ -133,30 +155,30 @@ export default function Navigation({ isScrolled }) {
 
       {/* Mobile Navigation Overlay */}
       <div className={`
-        fixed inset-0 z-40 md:hidden transition-all duration-500
+        fixed inset-0 z-40 md:hidden transition-all duration-500 ease-in-out
         ${isMobileMenuOpen 
           ? 'opacity-100 visible' 
           : 'opacity-0 invisible delay-300'
         }
       `}>
-        {/* Backdrop */}
         <div
           className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-500"
           onClick={closeMobileMenu}
+          onTouchStart={closeMobileMenu}
+          aria-hidden="true"
         ></div>
         
-        {/* Mobile Menu Panel */}
         <div className={`
-          absolute right-0 top-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-500
+          absolute right-0 top-0 h-full w-full max-w-sm bg-white shadow-2xl transform transition-transform duration-500 ease-in-out overflow-auto
           ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
         `}>
-          <div className="flex flex-col h-full overflow-y-auto">
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b">
+          <div className="flex flex-col h-full">
+            <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <span className="text-xl font-bold text-primary-600">Menu</span>
               <button
                 onClick={closeMobileMenu}
-                className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+                onTouchStart={closeMobileMenu}
+                className="p-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
                 aria-label="Close menu"
               >
                 <svg
@@ -175,22 +197,23 @@ export default function Navigation({ isScrolled }) {
               </button>
             </div>
 
-            {/* Navigation Links */}
             <nav className="flex-1 p-6">
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       onClick={closeMobileMenu}
+                      onTouchStart={closeMobileMenu}
                       className={`
                         block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300
                         transform hover:translate-x-2
                         ${isActive(link.href)
-                          ? 'bg-primary-500 text-black shadow-md'
+                          ? 'bg-primary-500 text-white shadow-md'
                           : 'text-dark hover:bg-primary-50 hover:text-primary-600'
                         }
                       `}
+                      aria-current={isActive(link.href) ? 'page' : undefined}
                     >
                       {link.label}
                     </Link>
@@ -199,20 +222,19 @@ export default function Navigation({ isScrolled }) {
               </ul>
             </nav>
 
-            {/* CTA Section */}
-            <div className="p-6 border-t">
+            <div className="p-6 border-t border-gray-100">
               <Link
                 href="/contact"
                 onClick={closeMobileMenu}
-                className="block w-full text-center px-6 py-3 bg-primary-500 text-black rounded-lg 
+                onTouchStart={closeMobileMenu}
+                className="block w-full text-center px-6 py-3 bg-primary-500 text-white rounded-lg 
                          font-semibold transition-all duration-300 hover:bg-primary-600 hover:shadow-md"
               >
                 Start Your Project
               </Link>
             </div>
 
-            {/* Footer */}
-            <div className="p-6 border-t">
+            <div className="p-6 border-t border-gray-100 bg-gray-50">
               <p className="text-sm text-gray-500 mb-4 text-center">Follow Us</p>
               <div className="flex justify-center space-x-4">
                 {SOCIAL_LINKS.map((social) => (
@@ -222,6 +244,8 @@ export default function Navigation({ isScrolled }) {
                     className="p-2 text-gray-600 hover:text-primary-500 transition-colors duration-300 
                              transform hover:scale-110"
                     aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {socialIcons[social.icon]}
                   </a>
