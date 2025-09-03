@@ -64,7 +64,7 @@ export const Header = () => {
       <h1 className="text-2xl md:text-7xl font-bold dark:text-black">
         The Ultimate <br /> development studio
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base md:text-xl mt-8 text-dark:text-black">
         We build beautiful products with the latest technologies and frameworks.
         We are a team of passionate developers and designers that love to build
         amazing products.
