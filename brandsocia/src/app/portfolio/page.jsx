@@ -1,92 +1,112 @@
-import {Card} from '@/components/ui/Card'
-import {Button} from '@/components/ui/Button'
+"use client";
+import { HeroParallax } from "@/components/ui/hero-parallax";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
-const projects = [
-  {
-    title: 'E-commerce Redesign',
-    category: 'Web Design',
-    description: 'Complete redesign of an online store with improved user experience and increased conversion rates.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  },
-  {
-    title: 'Brand Identity',
-    category: 'Branding',
-    description: 'Development of a comprehensive brand identity system for a tech startup.',
-    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  },
-  {
-    title: 'Social Media Campaign',
-    category: 'Social Media',
-    description: 'Multi-platform social media campaign that increased engagement by 150%.',
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  },
-  {
-    title: 'Content Strategy',
-    category: 'Content Marketing',
-    description: 'Development and implementation of a content strategy that boosted organic traffic.',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  },
-  {
-    title: 'SEO Optimization',
-    category: 'SEO',
-    description: 'Technical SEO overhaul that improved search rankings for key terms.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  },
-  {
-    title: 'Mobile App Design',
-    category: 'UI/UX Design',
-    description: 'User-centered design for a mobile application with intuitive navigation.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    link: '#'
-  }
-]
-
-export default function Portfolio() {
+export function HeroParallaxDemo() {
   return (
-    <div className="py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">Our Portfolio</h1>
-          <p className="text-lg text-gray-600">
-            Explore our work and see how we've helped businesses achieve their goals through innovative digital solutions.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gray-200 relative">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-                  <Button variant="outline" className="border-white text-white">
-                    View Project
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">{project.category}</p>
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600">{project.description}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
-        
-        <div className="text-center">
-          <Button href="/contact" variant="primary">
-            Start Your Project
-          </Button>
-        </div>
-      </div>
-    </div>
-  )
+  <>
+    <Header />
+    <div className='h-20'></div>
+    <HeroParallax products={products} />
+    <div className='h-20'></div>
+    <Footer />
+  </>
+  );
 }
+export const products = [
+  {
+    title: "TaxFilerz & Co",
+    link: "https://taxfilerz.com/",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+  },
+  {
+    title: "Apna Ghar Apni Zameen",
+    link: "https://apnagharapnizameen.com/",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+  },
+  {
+    title: "MZ Associates",
+    link: "https://mzassociatee.com/",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+  },
+
+  {
+    title: "Brands4You",
+    link: "https://editorially.org",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+  },
+  {
+    title: "Editrix AI",
+    link: "https://editrix.ai",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+  },
+  {
+    title: "Pixel Perfect",
+    link: "https://app.pixelperfect.quest",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+  },
+
+  {
+    title: "Algochurn",
+    link: "https://algochurn.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+  },
+  {
+    title: "Aceternity UI",
+    link: "https://ui.aceternity.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+  },
+  {
+    title: "Tailwind Master Kit",
+    link: "https://tailwindmasterkit.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+  },
+  {
+    title: "SmartBridge",
+    link: "https://smartbridgetech.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+  },
+  {
+    title: "Renderwork Studio",
+    link: "https://renderwork.studio",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+  },
+
+  {
+    title: "Creme Digital",
+    link: "https://cremedigital.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+  },
+  {
+    title: "Golden Bells Academy",
+    link: "https://goldenbellsacademy.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+  },
+  {
+    title: "Invoker Labs",
+    link: "https://invoker.lol",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+  },
+  {
+    title: "E Free Invoice",
+    link: "https://efreeinvoice.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+  },
+];
+export default HeroParallaxDemo;
