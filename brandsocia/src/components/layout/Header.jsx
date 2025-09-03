@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { NAV_LINKS, COMPANY_INFO } from "@/lib/constants"; // Import your constants
+import Contact from "@/app/contact/page";
 
 // Your custom logo component with black and white versions
 const Logo = ({ color }) => (
@@ -45,7 +46,7 @@ export function NavbarDemo() {
   const headerClasses = `
     fixed top-0 left-0 w-full z-50 transition-all duration-300 
     rounded-b-2xl shadow-md 
-    ${isScrolled ? "bg-white text-black" : "bg-black text-white"}
+    ${isScrolled ? "bg-white text-black" : "bg-transparent text-white"}
   `;
 
   const logoColor = isScrolled ? "black" : "white";
@@ -84,7 +85,7 @@ export function NavbarDemo() {
             <button className={`px-4 py-2 font-medium rounded-full transition-all duration-300 ${isScrolled ? "border border-gray-300 hover:bg-gray-100" : "bg-white text-black hover:bg-gray-200"}`}>
               Login
             </button>
-            <button className={`px-4 py-2 font-medium rounded-full transition-all duration-300 ${isScrolled ? "bg-black text-white hover:bg-gray-800" : "bg-orange-500 text-white hover:bg-orange-600"}`}>
+            <button onClick={Contact} className={`px-4 py-2 font-medium rounded-full transition-all duration-300 ${isScrolled ? "bg-black text-white hover:bg-gray-800" : "bg-orange-500 text-white hover:bg-orange-600"}`}>
               Book a call
             </button>
           </div>
