@@ -1,5 +1,6 @@
 import {Card }from '@/components/ui/Card'
 import Image from 'next/image'
+import Header from '@/components/layout/Header'
 
 export default function About() {
   const teamMembers = [
@@ -42,6 +43,9 @@ export default function About() {
   ]
 
   return (
+  <>
+    <Header/>
+    <div className='h-20'></div>
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -152,5 +156,6 @@ export default function About() {
         </div>
       </div>
     </div>
+  </>
   )
 }
