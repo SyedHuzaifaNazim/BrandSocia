@@ -1,6 +1,7 @@
 import {Card }from '@/components/ui/Card'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 export default function About() {
   const teamMembers = [
@@ -156,6 +157,7 @@ export default function About() {
         </div>
       </div>
     </div>
+    <Footer />
   </>
   )
 }
