@@ -23,7 +23,7 @@ export default function ServicesSection() {
           setIsVisible(true)
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     )
 
     if (sectionRef.current) {
@@ -39,30 +39,44 @@ export default function ServicesSection() {
   }, [rotatingTexts.length])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Hero Title Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20 max-w-4xl mx-auto">
+          <div className="inline-block overflow-hidden mb-4">
+            <span className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full mb-6 inline-block">
+              What We Offer
+            </span>
+          </div>
+          
           <div className="inline-block overflow-hidden">
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 transition-all duration-1000 ease-out ${
+            <h2 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-8 transition-all duration-1000 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800">
-                Our Services
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800 mb-4">
+                Creative Services
               </span>
-              <span className="block mt-2 text-gray-800">
+              <span className="block text-3xl md:text-4xl text-gray-700 font-normal">
                 Transforming{' '}
-                <span className="inline-block ml-2 text-primary-600 relative min-w-[200px] text-left">
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary-400 transform origin-left transition-all duration-500 scale-x-100"></span>
-                  <span className="block h-12 overflow-hidden">
+                <span className="inline-block mx-2 text-primary-600 relative min-w-[220px] text-left align-middle">
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary-400 transform origin-left transition-all duration-500 scale-x-105"></span>
+                  <span className="block h-12 overflow-hidden relative">
                     {rotatingTexts.map((text, index) => (
                       <span
                         key={index}
-                        className={`block transition-all duration-500 ${
+                        className={`block transition-all duration-700 absolute inset-0 ${
                           index === activeIndex
                             ? 'translate-y-0 opacity-100'
-                            : '-translate-y-full opacity-0 absolute'
+                            : '-translate-y-full opacity-0'
                         }`}
+                        style={{ 
+                          transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                          transform: index === activeIndex ? 'translateY(0)' : 'translateY(-100%)'
+                        }}
                       >
                         {text}
                       </span>
@@ -70,30 +84,40 @@ export default function ServicesSection() {
                   </span>
                 </span>
               </span>
-              <span className="block mt-2 text-gray-800">through digital excellence</span>
+              <span className="block text-3xl md:text-4xl text-gray-700 font-normal mt-4">through innovation</span>
             </h2>
           </div>
 
           <div className={`transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              We help brands grow with innovative digital strategies and stunning design that delivers measurable results.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              We craft digital experiences that blend creativity with strategy, delivering measurable results that drive your business forward.
             </p>
             
-            <Button 
-              href="/contact" 
-              className="inline-flex items-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg group"
-              variant="primary"
-            >
-              Start Your Project
-              <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                href="/contact" 
+                className="group px-10 py-5 rounded-2xl font-semibold transition-all duration-300 hover:shadow-2xl shadow-lg"
+                variant="primary"
+              >
+                Start Your Project
+                <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
+              </Button>
+              <Button 
+                href="/portfolio" 
+                className="group px-10 py-5 rounded-2xl font-semibold border-2 border-gray-300 bg-transparent text-gray-800 hover:bg-gray-50 transition-all duration-300"
+                variant="outline"
+              >
+                View Our Work
+                <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
           {services.map((service, index) => (
             <ServiceCard 
               key={index} 
@@ -104,17 +128,36 @@ export default function ServicesSection() {
           ))}
         </div>
         
-        {/* Bottom CTA */}
-        <div className={`bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-10 text-center text-white transition-all duration-1000 delay-700 ${
+        {/* Trust Indicators */}
+        <div className={`flex flex-col items-center justify-center mb-16 transition-all duration-1000 delay-500 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">Ready to get started?</h2>
-          <p className="text-primary-100 mb-6 max-w-2xl mx-auto text-lg">
-            Contact us today to discuss how we can help you achieve your business goals with our digital marketing and design services.
+          <p className="text-gray-500 text-sm font-medium mb-6">Trusted by innovative companies worldwide</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            {[1, 2, 3, 4, 5].map((item) => (
+              <div key={item} className="h-8 w-auto grayscale contrast-50 opacity-70">
+                <div className="h-full w-24 bg-gray-300 rounded-lg"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Bottom CTA */}
+        <div className={`bg-gradient-to-r from-primary-500/10 to-primary-700/10 backdrop-blur-sm border border-primary-200/30 rounded-3xl p-12 text-center transition-all duration-1000 delay-700 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Ready to transform your digital presence?</h2>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+            Let's collaborate to create something extraordinary. Our team is ready to bring your vision to life with cutting-edge solutions.
           </p>
-          <Button href="/contact" variant="secondary" size="lg">
-            Schedule a Consultation
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/contact" variant="primary" size="lg" className="px-8 py-4 rounded-xl">
+              Schedule a Consultation
+            </Button>
+            <Button href="/services" variant="outline" size="lg" className="px-8 py-4 rounded-xl border-2">
+              Explore All Services
+            </Button>
+          </div>
         </div>
       </div>
     </section>
@@ -126,26 +169,38 @@ function ServiceCard({ service, index, isVisible }) {
 
   return (
     <Card 
-      className={`h-full p-6 rounded-2xl transition-all duration-700 ease-out ${
+      className={`h-full p-8 rounded-3xl transition-all duration-500 ease-out overflow-hidden group relative ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-      } ${isHovered ? 'shadow-2xl bg-white border-primary-100 transform -translate-y-2' : 'shadow-md'}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      } ${
+        isHovered 
+          ? 'shadow-2xl bg-white border-primary-100/50 transform -translate-y-2' 
+          : 'shadow-lg bg-white/80 backdrop-blur-sm border-gray-200/50'
+      }`}
+      style={{ 
+        transitionDelay: `${index * 100}ms`,
+        transitionProperty: 'transform, box-shadow, border-color, background-color'
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-col h-full">
-        <div className="mb-4">
-          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center transition-all duration-300 mb-4 text-3xl shadow-lg`}>
+      {/* Hover effect background */}
+      <div className={`absolute inset-0 bg-gradient-to-br from-primary-50/30 to-secondary-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
+      
+      <div className="flex flex-col h-full relative z-10">
+        <div className="mb-6">
+          <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center transition-all duration-500 mb-6 text-4xl shadow-lg group-hover:scale-110 group-hover:shadow-xl`}>
             {service.icon}
           </div>
           
-          <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
-          <p className="text-gray-600 mb-5">{service.description}</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-700 transition-colors duration-300">
+            {service.title}
+          </h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
           
-          <ul className="mb-6">
+          <ul className="mb-8 space-y-3">
             {service.features.map((feature, i) => (
-              <li key={i} className="flex items-center mb-3">
-                <svg className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <li key={i} className="flex items-start">
+                <svg className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span className="text-gray-700">{feature}</span>
@@ -154,15 +209,24 @@ function ServiceCard({ service, index, isVisible }) {
           </ul>
         </div>
         
-        <div className="mt-auto">
-          <Button 
-            href={`/services/${service.slug}`}
-            variant="outline"
-            className="w-full group"
-          >
-            Learn More
-            <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </Button>
+        <div className="mt-auto pt-6 border-t border-gray-100/50 group-hover:border-primary-100/50 transition-colors duration-300">
+          <div className="flex justify-between items-center">
+            <Button 
+              href={`/services/${service.slug}`}
+              variant="ghost"
+              className="group-hover:text-primary-600 group-hover:bg-primary-50 px-6 py-3 rounded-xl transition-all duration-300"
+            >
+              Learn More
+              <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
+            </Button>
+            
+            {service.price && (
+              <div className="text-right">
+                <span className="text-sm text-gray-500 block">Starting from</span>
+                <span className="text-lg font-bold text-primary-600">{service.price}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Card>
