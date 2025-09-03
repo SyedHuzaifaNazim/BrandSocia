@@ -18,14 +18,14 @@ export const SERVICES = [
 
 export const SOCIAL_LINKS = [
   { name: 'Twitter', href: '#', icon: 'twitter' },
-  { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { name: 'Facebook', href: '#', icon: 'facebook' },
-  { name: 'Instagram', href: '#', icon: 'instagram' }
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/brand-socia/', icon: 'linkedin' },
+  { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61577997013762', icon: 'facebook' },
+  { name: 'Instagram', href: 'https://www.instagram.com/brandsocia/', icon: 'instagram' }
 ]
 
 export const COMPANY_INFO = {
   name: 'BrandSocia',
   email: 'contact@brandsocia.com',
-  phone: '+92 328 1234567',
-  address: 'ICMA ,Guslshan-e-Iqbal, Karachi, Pakistan'
+  phone: '+92 328 3389247',
+  address: 'Office # 24, 2nd Floor, ICMAP Tower, ICMAP Head Office, ST-18/C, Block 6, Gulshan-e-Iqbal, Karachi 75300'
 }
