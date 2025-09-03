@@ -1,5 +1,7 @@
 // app/services/page.jsx
 import ServicesSection from '@/components/sections/ServicesSection'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'Services | BrandSocia',
@@ -7,5 +9,12 @@ export const metadata = {
 }
 
 export default function ServicesPage() {
-  return <ServicesSection />
+  return (
+    <>
+    <Header />
+    <div className='h-20'></div>
+    <ServicesSection />
+    <Footer />
+    </>
+)
 }
