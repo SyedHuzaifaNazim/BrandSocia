@@ -5,36 +5,36 @@ import Header from '@/components/layout/Header'
 export default function About() {
   const teamMembers = [
     {
-      name: "Sarah Johnson",
+      name: "Sheikh Azmat Ali",
       position: "Creative Director",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+      image: "/WhatsApp_Image_2025-07-01_at_17.12.44_ca3aba3a-removebg-preview.png",
       social: {
         twitter: "#",
         linkedin: "#"
       }
     },
     {
-      name: "Michael Chen",
+      name: "Syed Huzaifa Nazim",
       position: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+      image: "/WhatsApp-Image-2024-03-02-at-1.43.27-AM.png",
       social: {
         twitter: "#",
         linkedin: "#"
       }
     },
     {
-      name: "Emily Rodriguez",
+      name: "Subbyil Fahim",
       position: "Marketing Strategist",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+      image: "/IMG-20250322-WA0004-e1742639040613.png",
       social: {
         twitter: "#",
         linkedin: "#"
       }
     },
     {
-      name: "David Kim",
-      position: "UI/UX Designer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+      name: "Hoor Ul Ain",
+      position: "Digital Marketing Manager",
+      image: "/WhatsApp-Image-2025-04-25-at-11.26.43_a76c1810.png",
       social: {
         twitter: "#",
         linkedin: "#"
