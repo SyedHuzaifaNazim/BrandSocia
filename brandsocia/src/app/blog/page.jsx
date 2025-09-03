@@ -1,7 +1,12 @@
 import BlogGrid from '@/components/blog/BlogGrid'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 export default function Blog() {
   return (
+    <>
+    <Header />
+    <div className='h-20'></div>
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -14,5 +19,7 @@ export default function Blog() {
         <BlogGrid />
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
