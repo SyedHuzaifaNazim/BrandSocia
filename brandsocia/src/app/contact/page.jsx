@@ -4,6 +4,9 @@ import { useState } from 'react'
 import {Card} from '@/components/ui/Card'
 import {Button} from '@/components/ui/Button'
 import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,6 +38,8 @@ export default function Contact() {
   
   return (
     <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <Header/>
     <div className='h-20'></div>
     <div className="py-16">
@@ -187,6 +192,7 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   )
 }
