@@ -2,6 +2,8 @@
 import ServicesSection from '@/components/sections/ServicesSection'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export const metadata = {
   title: 'Services | BrandSocia',
@@ -11,6 +13,8 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <Header />
     <div className='h-20'></div>
     <ServicesSection />
