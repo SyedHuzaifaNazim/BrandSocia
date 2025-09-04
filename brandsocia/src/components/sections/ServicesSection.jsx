@@ -44,7 +44,7 @@ export default function ServicesSection() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-b relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
@@ -53,16 +53,16 @@ export default function ServicesSection() {
         {/* Hero Title Section */}
         <div className="text-center mb-20 max-w-4xl mx-auto">
           <div className="inline-block overflow-hidden mb-4">
-            <span className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full mb-6 inline-block">
+            {/* <span className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full mb-6 inline-block">
               What We Offer
-            </span>
+            </span> */}
           </div>
           
           <div className="inline-block overflow-hidden">
             <h2 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-8 transition-all duration-1000 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800 mb-4">
+              <span className="block bg-clip-text text-dark bg-gradient-to-r from-primary-600 to-primary-800 mb-4">
                 Creative Services
               </span>
               <span className="block text-3xl md:text-4xl text-gray-700 font-normal">
@@ -138,12 +138,24 @@ export default function ServicesSection() {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <p className="text-gray-500 text-sm font-medium mb-6">Trusted by innovative companies worldwide</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {[1, 2, 3, 4, 5].map((item) => (
-              <div key={item} className="h-8 w-auto grayscale contrast-50 opacity-70">
-                <div className="h-full w-24 bg-gray-300 rounded-lg"></div>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            
+              <div className="h-8 w-auto">
+                <div className="h-full w-24 rounded-lg">
+                  <img src="/companies/cropped-cropped-logo-with-blue-and-white-1-2-300x287-removebg-preview.png" alt="" />
+                </div>
               </div>
-            ))}
+              <div className="h-8 w-auto">
+                <div className="h-full w-24 rounded-lg">
+                  <img src="/companies/Lettermark_Logo_with_Interlinked_Circles-removebg-preview.png" alt="" />
+                </div>
+              </div>
+              <div className="h-8 w-auto">
+                <div className="h-full w-24 rounded-lg">
+                  <img src="/companies/second_concept_blue-01_3.webp" alt="" />
+                </div>
+              </div>
+
           </div>
         </div>
         
@@ -193,8 +205,8 @@ function ServiceCard({ service, index, isVisible }) {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
       } ${
         isHovered 
-          ? 'shadow-2xl bg-white border-primary-100/50 transform -translate-y-2' 
-          : 'shadow-lg bg-white/80 backdrop-blur-sm border-gray-200/50'
+          ? 'shadow-2xl bg-transparent border-primary-100/50 transform -translate-y-2' 
+          : 'shadow-lg bg-transparent/80 backdrop-blur-sm border-gray-200/50'
       }`}
       style={{ 
         transitionDelay: `${index * 100}ms`,

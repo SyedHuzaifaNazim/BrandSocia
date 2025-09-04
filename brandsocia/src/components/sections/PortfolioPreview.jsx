@@ -29,7 +29,7 @@ export default function PortfolioPreview() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
