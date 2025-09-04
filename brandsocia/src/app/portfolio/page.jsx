@@ -2,10 +2,14 @@
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export function HeroParallaxDemo() {
   return (
   <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <Header />
     <div className='h-20'></div>
     <HeroParallax products={products} />
