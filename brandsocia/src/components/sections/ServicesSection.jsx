@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { services, rotatingTexts } from '@/lib/constants/services'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -11,6 +11,7 @@ export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
+  const router = useRouter()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +38,10 @@ export default function ServicesSection() {
       }
     }
   }, [rotatingTexts.length])
+
+  const handleNavigate = (path) => {
+    router.push(path)
+  }
 
   return (
     <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -97,7 +102,7 @@ export default function ServicesSection() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
-                href="/contact" 
+                onClick={() => handleNavigate('/contact')}
                 className="group px-10 py-5 rounded-2xl font-semibold transition-all duration-300 hover:shadow-2xl shadow-lg"
                 variant="primary"
               >
@@ -105,7 +110,7 @@ export default function ServicesSection() {
                 <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </Button>
               <Button 
-                href="/portfolio" 
+                onClick={() => handleNavigate('/portfolio')}
                 className="group px-10 py-5 rounded-2xl font-semibold border-2 border-gray-300 bg-transparent text-gray-800 hover:bg-gray-50 transition-all duration-300"
                 variant="outline"
               >
@@ -151,10 +156,20 @@ export default function ServicesSection() {
             Let's collaborate to create something extraordinary. Our team is ready to bring your vision to life with cutting-edge solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="primary" size="lg" className="px-8 py-4 rounded-xl">
+            <Button 
+              onClick={() => handleNavigate('/contact')} 
+              variant="primary" 
+              size="lg" 
+              className="px-8 py-4 rounded-xl"
+            >
               Schedule a Consultation
             </Button>
-            <Button href="/services" variant="outline" size="lg" className="px-8 py-4 rounded-xl border-2">
+            <Button 
+              onClick={() => handleNavigate('/services')} 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-4 rounded-xl border-2"
+            >
               Explore All Services
             </Button>
           </div>
@@ -166,6 +181,11 @@ export default function ServicesSection() {
 
 function ServiceCard({ service, index, isVisible }) {
   const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
+
+  const handleLearnMore = () => {
+    router.push(`/services/${service.slug}`)
+  }
 
   return (
     <Card 
@@ -211,14 +231,13 @@ function ServiceCard({ service, index, isVisible }) {
         
         <div className="mt-auto pt-6 border-t border-gray-100/50 group-hover:border-primary-100/50 transition-colors duration-300">
           <div className="flex justify-between items-center">
-            <Button 
-              href={`/services/${service.slug}`}
-              variant="ghost"
+            <button 
+              onClick={handleLearnMore}
               className="group-hover:text-primary-600 group-hover:bg-primary-50 px-6 py-3 rounded-xl transition-all duration-300"
             >
               Learn More
               <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
-            </Button>
+            </button>
             
             {service.price && (
               <div className="text-right">

@@ -7,7 +7,8 @@ export const services = [
     features: ['Custom Design', 'Responsive Development', 'CMS Integration', 'E-commerce Solutions'],
     icon: '💻',
     color: 'from-blue-500 to-cyan-500',
-    slug: 'web-development'
+    slug: 'web-development',
+    href: '/services/web-development'
   },
   {
     title: 'Social Media Marketing',
