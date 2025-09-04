@@ -2,49 +2,53 @@ import {Card }from '@/components/ui/Card'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: "Sheikh Azmat Ali",
-      position: "Creative Director",
-      image: "/WhatsApp_Image_2025-07-01_at_17.12.44_ca3aba3a-removebg-preview.png",
-      social: {
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Syed Huzaifa Nazim",
-      position: "Lead Developer",
-      image: "/WhatsApp-Image-2024-03-02-at-1.43.27-AM.png",
-      social: {
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Subbyil Fahim",
-      position: "Marketing Strategist",
-      image: "/IMG-20250322-WA0004-e1742639040613.png",
-      social: {
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Hoor Ul Ain",
-      position: "Digital Marketing Manager",
-      image: "/WhatsApp-Image-2025-04-25-at-11.26.43_a76c1810.png",
-      social: {
-        twitter: "#",
-        linkedin: "#"
-      }
-    }
-  ]
+  // const teamMembers = [
+  //   {
+  //     name: "Sheikh Azmat Ali",
+  //     position: "Creative Director",
+  //     image: "/WhatsApp_Image_2025-07-01_at_17.12.44_ca3aba3a-removebg-preview.png",
+  //     social: {
+  //       twitter: "#",
+  //       linkedin: "#"
+  //     }
+  //   },
+  //   {
+  //     name: "Syed Huzaifa Nazim",
+  //     position: "Lead Developer",
+  //     image: "/WhatsApp-Image-2024-03-02-at-1.43.27-AM.png",
+  //     social: {
+  //       twitter: "#",
+  //       linkedin: "#"
+  //     }
+  //   },
+  //   {
+  //     name: "Subbyil Fahim",
+  //     position: "Marketing Strategist",
+  //     image: "/IMG-20250322-WA0004-e1742639040613.png",
+  //     social: {
+  //       twitter: "#",
+  //       linkedin: "#"
+  //     }
+  //   },
+  //   {
+  //     name: "Hoor Ul Ain",
+  //     position: "Digital Marketing Manager",
+  //     image: "/WhatsApp-Image-2025-04-25-at-11.26.43_a76c1810.png",
+  //     social: {
+  //       twitter: "#",
+  //       linkedin: "#"
+  //     }
+  //   }
+  // ]
 
   return (
   <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <Header/>
     <div className='h-20'></div>
     <div className="py-16">
@@ -115,7 +119,7 @@ export default function About() {
           </div>
         </div>
         
-        <div>
+        {/* <div>
           <h2 className="text-2xl font-semibold mb-8 text-center">Our Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
@@ -154,7 +158,7 @@ export default function About() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
     <Footer />
