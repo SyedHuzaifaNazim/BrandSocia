@@ -1,10 +1,14 @@
 import BlogGrid from '@/components/blog/BlogGrid'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export default function Blog() {
   return (
     <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <Header />
     <div className='h-20'></div>
     <div className="py-16">
