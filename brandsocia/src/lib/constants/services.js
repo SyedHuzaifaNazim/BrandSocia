@@ -8,7 +8,6 @@ export const services = [
     icon: '💻',
     color: 'from-blue-500 to-cyan-500',
     slug: 'web-development',
-    href: '/services/web-development'
   },
   {
     title: 'Social Media Marketing',
@@ -36,6 +35,15 @@ export const services = [
     icon: '🎨',
     color: 'from-green-500 to-teal-500',
     slug: 'brand-identity'
+  },
+  {
+    title: 'Graphic Designing',
+    description: 'We create stunning visual designs that capture attention and communicate your message effectively.',
+    longDescription: 'Our graphic design services include creating visual concepts that inspire, inform, and captivate consumers. We develop the overall layout and production design for various applications.',
+    features: ['Logo Design', 'Brochures & Flyers', 'Business Cards', 'Social Media Graphics'],
+    icon: '✏️',
+    color: 'from-violet-500 to-purple-500',
+    slug: 'graphic-designing'
   },
   {
     title: 'SEO Optimization',
