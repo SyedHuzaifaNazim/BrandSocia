@@ -47,6 +47,12 @@ export const Button = ({
   };
 
   const handleClick = async (event) => {
+    // Prevent animation for navigation buttons to avoid interfering with router.push
+    if (props.onClick && props.onClick.toString().includes('router.push')) {
+      props.onClick(event);
+      return;
+    }
+    
     await animateLoading();
     await props.onClick?.(event);
     await animateSuccess();

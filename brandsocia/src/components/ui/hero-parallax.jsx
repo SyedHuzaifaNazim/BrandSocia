@@ -78,6 +78,7 @@ export const ProductCard = ({
   translate
 }) => {
   return (
+    <>
     <motion.div
       style={{
         x: translate,
@@ -102,5 +103,7 @@ export const ProductCard = ({
         {product.title}
       </h2>
     </motion.div>
+    <div className="h-50"></div>
+    </>
   );
 };

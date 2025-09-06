@@ -1,47 +1,137 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
 const projects = [
   {
-    title: 'E-commerce Redesign',
-    category: 'Web Design',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'Complete overhaul of online shopping experience with focus on conversion optimization'
-  },
-  {
-    title: 'Brand Identity',
+    id: 1,
+    title: 'Nexus Tech Brand Identity',
     category: 'Branding',
-    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'Comprehensive brand system development including logo, color palette, and visual guidelines'
+    image: '/images/portfolio/project1.jpg',
+    link: '/portfolio/project1',
+    description: 'Complete brand overhaul for an emerging tech startup, including logo design, color palette, and brand guidelines.',
   },
   {
-    title: 'Social Campaign',
-    category: 'Social Media',
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-    description: '360-degree social media campaign that increased engagement by 240%'
-  }
+    id: 2,
+    title: 'Luxe Boutique E-commerce',
+    category: 'Web Design',
+    image: '/images/portfolio/project2.jpg',
+    link: '/portfolio/project2',
+    description: 'Conversion-focused redesign for a luxury fashion retailer, resulting in 45% increase in online sales.',
+  },
+  {
+    id: 3,
+    title: 'EcoLife Campaign Series',
+    category: 'Marketing',
+    image: '/images/portfolio/project3.jpg',
+    link: '/portfolio/project3',
+    description: 'Multi-platform social media campaign that increased brand engagement by 78% and drove 10k+ new followers.',
+  },
+  {
+    id: 4,
+    title: 'HealthTrack Mobile App',
+    category: 'UI/UX',
+    image: '/images/portfolio/project4.jpg',
+    link: '/portfolio/project4',
+    description: 'Intuitive health tracking application with seamless user experience and accessibility-focused design.',
+  },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+  hover: {
+    y: -10,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 10,
+    },
+  },
+};
 
 export default function PortfolioPreview() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-b relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-b relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></motion.div>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1.5, delay: 0.2 }}
+        className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-block mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="inline-block mb-4"
+          >
             <span className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full">
               Our Work
             </span>
-          </div>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
             Featured Projects
           </h2>
@@ -49,13 +139,20 @@ export default function PortfolioPreview() {
             Explore our portfolio of successful projects and see how we've helped businesses achieve 
             their goals through innovative design and strategic thinking.
           </p>
-        </div>
+        </motion.div>
         
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+        >
           {projects.map((project, index) => (
-            <div 
+            <motion.div 
               key={index}
+              variants={cardVariants}
+              whileHover="hover"
               className="relative group"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -84,6 +181,7 @@ export default function PortfolioPreview() {
                     <Button 
                       variant="outline" 
                       className="border-2 border-white text-white bg-black/20 backdrop-blur-sm hover:bg-white hover:text-black transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
+                      href={project.link}
                     >
                       View Case Study
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,12 +212,17 @@ export default function PortfolioPreview() {
                 {/* Accent Border Effect */}
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-secondary-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </Card>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         {/* CTA Section */}
-        <div className="text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center"
+        >
           <div className="bg-gradient-to-r from-primary-500/10 to-primary-700/10 backdrop-blur-sm border border-primary-200/30 rounded-3xl p-12 mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
               Ready to create something amazing together?
@@ -149,7 +252,7 @@ export default function PortfolioPreview() {
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <style jsx>{`

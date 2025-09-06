@@ -3,13 +3,16 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 import { services, rotatingTexts } from '@/lib/constants/services'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
+import Link from 'next/link'
 
 export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredCard, setHoveredCard] = useState(null)
   const sectionRef = useRef(null)
   const router = useRouter()
 
@@ -42,27 +45,63 @@ export default function ServicesSection() {
   const handleNavigate = (path) => {
     router.push(path)
   }
+  
+  // Animation variants for staggered animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+  
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/5 to-secondary-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/5 to-secondary-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-500/10 to-secondary-400/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary-600/10 to-secondary-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Hero Title Section */}
-        <div className="text-center mb-20 max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-20 max-w-4xl mx-auto"
+        >
           <div className="inline-block overflow-hidden mb-4">
-            {/* <span className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full mb-6 inline-block">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 10 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full mb-6 inline-block"
+            >
               What We Offer
-            </span> */}
+            </motion.span>
           </div>
           
           <div className="inline-block overflow-hidden">
-            <h2 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-8 transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              <span className="block bg-clip-text text-dark bg-gradient-to-r from-primary-600 to-primary-800 mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8"
+            >
+              <span className="block bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-4">
                 Creative Services
               </span>
               <span className="block text-3xl md:text-4xl text-gray-700 font-normal">
@@ -90,19 +129,21 @@ export default function ServicesSection() {
                 </span>
               </span>
               <span className="block text-3xl md:text-4xl text-gray-700 font-normal mt-4">through innovation</span>
-            </h2>
+            </motion.h2>
           </div>
 
-          <div className={`transition-all duration-1000 delay-300 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          >
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
               We craft digital experiences that blend creativity with strategy, delivering measurable results that drive your business forward.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
-                onClick={() => handleNavigate('/contact')}
+                onClick={() => router.push('/contact')}
                 className="group px-10 py-5 rounded-2xl font-semibold transition-all duration-300 hover:shadow-2xl shadow-lg"
                 variant="primary"
               >
@@ -118,25 +159,34 @@ export default function ServicesSection() {
                 <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </Button>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20"
+        >
           {services.map((service, index) => (
             <ServiceCard 
               key={index} 
               service={service} 
               index={index} 
-              isVisible={isVisible} 
+              isVisible={isVisible}
+              cardVariants={cardVariants}
             />
           ))}
-        </div>
+        </motion.div>
         
         {/* Trust Indicators */}
-        <div className={`flex flex-col items-center justify-center mb-16 transition-all duration-1000 delay-500 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+          className="flex flex-col items-center justify-center mb-16"
+        >
           <p className="text-gray-500 text-sm font-medium mb-6">Trusted by innovative companies worldwide</p>
           <div className="flex flex-wrap justify-center items-center gap-8">
             
@@ -157,12 +207,15 @@ export default function ServicesSection() {
               </div>
 
           </div>
-        </div>
+        </motion.div>
         
         {/* Bottom CTA */}
-        <div className={`bg-gradient-to-r from-primary-500/10 to-primary-700/10 backdrop-blur-sm border border-primary-200/30 rounded-3xl p-12 text-center transition-all duration-1000 delay-700 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
+          className="bg-gradient-to-r from-primary-500/10 to-primary-700/10 backdrop-blur-sm border border-primary-200/30 rounded-3xl p-12 text-center"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Ready to transform your digital presence?</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
             Let's collaborate to create something extraordinary. Our team is ready to bring your vision to life with cutting-edge solutions.
@@ -185,13 +238,13 @@ export default function ServicesSection() {
               Explore All Services
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-function ServiceCard({ service, index, isVisible }) {
+function ServiceCard({ service, index, isVisible, cardVariants }) {
   const [isHovered, setIsHovered] = useState(false)
   const router = useRouter()
 
@@ -200,66 +253,72 @@ function ServiceCard({ service, index, isVisible }) {
   }
 
   return (
-    <Card 
-      className={`h-full p-8 rounded-3xl transition-all duration-500 ease-out overflow-hidden group relative ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-      } ${
-        isHovered 
-          ? 'shadow-2xl bg-transparent border-primary-100/50 transform -translate-y-2' 
-          : 'shadow-lg bg-transparent/80 backdrop-blur-sm border-gray-200/50'
-      }`}
-      style={{ 
-        transitionDelay: `${index * 100}ms`,
-        transitionProperty: 'transform, box-shadow, border-color, background-color'
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <motion.div
+      variants={cardVariants}
+      className="h-full"
     >
-      {/* Hover effect background */}
-      <div className={`absolute inset-0 bg-gradient-to-br from-primary-50/30 to-secondary-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
-      
-      <div className="flex flex-col h-full relative z-10">
-        <div className="mb-6">
-          <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center transition-all duration-500 mb-6 text-4xl shadow-lg group-hover:scale-110 group-hover:shadow-xl`}>
-            {service.icon}
-          </div>
-          
-          <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-700 transition-colors duration-300">
-            {service.title}
-          </h3>
-          <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-          
-          <ul className="mb-8 space-y-3">
-            {service.features.map((feature, i) => (
-              <li key={i} className="flex items-start">
-                <svg className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-700">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <Card 
+        className={`h-full p-8 rounded-3xl transition-all duration-500 ease-out overflow-hidden group relative ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        } ${
+          isHovered 
+            ? 'shadow-2xl bg-transparent border-primary-100/50 transform -translate-y-2' 
+            : 'shadow-lg bg-transparent/80 backdrop-blur-sm border-gray-200/50'
+        }`}
+        style={{ 
+          transitionDelay: `${index * 100}ms`,
+          transitionProperty: 'transform, box-shadow, border-color, background-color'
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Hover effect background */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-primary-50/30 to-secondary-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
         
-        <div className="mt-auto pt-6 border-t border-gray-100/50 group-hover:border-primary-100/50 transition-colors duration-300">
-          <div className="flex justify-between items-center">
-            <button 
-              onClick={handleLearnMore}
-              className="group-hover:text-primary-600 group-hover:bg-primary-50 px-6 py-3 rounded-xl transition-all duration-300"
-            >
-              Learn More
-              <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
-            </button>
+        <div className="flex flex-col h-full relative z-10">
+          <div className="mb-6">
+            <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center transition-all duration-500 mb-6 text-4xl shadow-lg group-hover:scale-110 group-hover:shadow-xl`}>
+              {service.icon}
+            </div>
             
-            {service.price && (
-              <div className="text-right">
-                <span className="text-sm text-gray-500 block">Starting from</span>
-                <span className="text-lg font-bold text-primary-600">{service.price}</span>
-              </div>
-            )}
+            <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-700 transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+            
+            <ul className="mb-8 space-y-3">
+              {service.features.map((feature, i) => (
+                <li key={i} className="flex items-start">
+                  <svg className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span className="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div className="mt-auto pt-6 border-t border-gray-100/50 group-hover:border-primary-100/50 transition-colors duration-300">
+            <div className="flex justify-between items-center">
+              <Link href={`/services/${service.slug}`}>
+                <button 
+                  className="group-hover:text-primary-600 group-hover:bg-primary-50 px-6 py-3 rounded-xl transition-all duration-300"
+                >
+                  Learn More
+                  <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </button>
+              </Link>
+              
+              {service.price && (
+                <div className="text-right">
+                  <span className="text-sm text-gray-500 block">Starting from</span>
+                  <span className="text-lg font-bold text-primary-600">{service.price}</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </motion.div>
   )
 }
