@@ -7,38 +7,33 @@ import { Button } from '@/components/ui/Button'
 export default function Hero() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
-
-
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden" sty>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
-          // playsInline  
-          className="w-full h-auto object-cover sm:scale-100 scale-110" 
+          playsInline
+          onCanPlay={() => setIsVideoLoaded(true)} 
+          className="w-full object-cover sm:scale-100 scale-110"
         >
-          {/* Use correct path - video should be in public/videos directory */}
           <source src="/videos/WhatsApp-Video-2025-07-10-at-14.36.39_c3cabd90.mp4" type="video/mp4" />
           <source src="/videos/WhatsApp-Video-2025-07-10-at-14.36.39_c3cabd90.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
-        
-        {/* Overlay for better text visibility */}
+
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
       </div>
 
       {/* Content */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: isVideoLoaded ? 1 : 0, 
-          y: isVideoLoaded ? 0 : 20 
-        }}
+        animate={{ opacity: isVideoLoaded ? 1 : 0, y: isVideoLoaded ? 0 : 20 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="container mx-auto px-4 relative z-10 text-center text-white pt-[20%] sm:pt-0"
+        className="container mx-auto px-4 relative z-10 text-center text-white"
       >
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -47,7 +42,10 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">Creative Digital</span> <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
+                Creative Digital
+              </span>
+              <br />
               <span className="text-white">Solutions for Your Brand</span>
             </h1>
           </motion.div>
