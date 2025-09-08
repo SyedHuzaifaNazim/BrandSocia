@@ -36,6 +36,7 @@ export const TextHoverEffect = ({ text, duration }) => {
         {/* Vibrant gradient that pops on white */}
         <linearGradient
           id="textGradient"
+          gradientUnits="userSpaceOnUse"
           x1="0%"
           y1="0%"
           x2="100%"
@@ -43,8 +44,8 @@ export const TextHoverEffect = ({ text, duration }) => {
         >
           {hovered && (
             <>
-              <stop offset="0%" stopColor="#FF7D23" />
-              <stop offset="50%" stopColor="#FFFF00" />
+              <stop offset="100%" stopColor="#FF7D23" />
+              <stop offset="100%" stopColor="#FFFF00" />
               <stop offset="100%" stopColor="#FFEFEA" />
             </>
           )}
@@ -59,8 +60,8 @@ export const TextHoverEffect = ({ text, duration }) => {
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
         >
-          <stop offset="0%" stopColor="white" />
-          <stop offset="100%" stopColor="black" />
+          <stop offset="100%" stopColor="white" />
+          <stop offset="0%" stopColor="black" />
         </motion.radialGradient>
 
         <mask id="textMask">

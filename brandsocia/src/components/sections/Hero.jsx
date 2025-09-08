@@ -17,7 +17,7 @@ export default function Hero() {
           loop
           playsInline
           onCanPlay={() => setIsVideoLoaded(true)} 
-          className="w-full object-cover sm:scale-100 scale-110"
+          className="w-full h-auto object-cover sm:scale-100 scale-110"
         >
           <source src="/videos/WhatsApp-Video-2025-07-10-at-14.36.39_c3cabd90.mp4" type="video/mp4" />
           <source src="/videos/WhatsApp-Video-2025-07-10-at-14.36.39_c3cabd90.webm" type="video/webm" />

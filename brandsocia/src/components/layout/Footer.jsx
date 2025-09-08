@@ -313,7 +313,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="h-[24rem] flex items-center justify-center mb-10"
+          className="h-auto flex items-center justify-center mb-10"
         >
           <TextHoverEffect text="BRANDSOCIA" duration={0.15} />
         </motion.div>
