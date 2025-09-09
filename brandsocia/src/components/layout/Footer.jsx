@@ -123,7 +123,7 @@ export default function Footer() {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 bg-300% animate-gradient"
               >
-                {COMPANY_INFO.name}
+                <img src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} width={200} height={150} />
               </motion.h3>
               <motion.p 
                 initial={{ opacity: 0, x: -20 }}
@@ -231,7 +231,8 @@ export default function Footer() {
               
               <div className="flex space-x-3 mb-8">
                 {SOCIAL_LINKS.map((social) => (
-                  <motion.a 
+                  <motion.a
+                    // logo={social.icon} 
                     key={social.name}
                     href={social.href} 
                     className="w-12 h-12 rounded-xl bg-gradient-to-b from-orange-800/40 to-orange-900/70 flex items-center justify-center text-orange-200 hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20 backdrop-blur-sm border border-orange-700/30"
