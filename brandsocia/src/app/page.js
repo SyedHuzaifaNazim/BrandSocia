@@ -11,6 +11,7 @@ import ContactCTA from '@/components/sections/ContactCTA'
 import Footer from '@/components/layout/Footer'
 import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
+import Error from '@/app/error'
 
 // Animation variants for page sections
 const fadeInUp = {
@@ -34,7 +35,7 @@ export default function Home() {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="relative overflow-x-hidden"
+      className="relative overflow-hidden"
     >
       <Header />
       <ColorGradientBackground />
@@ -74,7 +75,7 @@ export default function Home() {
       >
         <ContactCTA />
       </motion.div>
-      
+      {/* <Error /> */}
       <Footer />
     </motion.div>
   )
