@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer'
 import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 import { motion } from 'motion/react'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,16 @@ export default function Contact() {
     company: '', 
     message: ''
   })
+
+  const mapStyles = {
+    height: "100%",
+    width: "100%"
+  }
+
+  const defaultCenter = {
+    lat: 24.927030,
+    lng: 67.090159
+  }
   
   const handleChange = (e) => {
     setFormData({
@@ -255,15 +266,15 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="rounded-2xl overflow-hidden shadow-lg h-96"
         >
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.1736471540546!2d67.09015937452566!3d24.92702994346693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338bf22becb0d%3A0xd5e50842c5e5d8b!2sICMAP%20Building%2C%20ST-18%2C%20Block%206%20Gulshan-e-Iqbal%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1689338868347!5m2!1sen!2s" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+            <GoogleMap
+              mapContainerStyle={mapStyles}
+              zoom={15}
+              center={defaultCenter}
+            >
+              <Marker position={defaultCenter} />
+            </GoogleMap>
+          </LoadScript>
         </motion.div>
       </div>
     </section>
