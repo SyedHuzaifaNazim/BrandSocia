@@ -17,7 +17,7 @@ export const SERVICES = [
 ]
 
 export const SOCIAL_LINKS = [
-  { name: 'Twitter', href: '#', icon: <TwitterOutlined /> },
+  { name: 'Twitter', href: '#' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/brand-socia/' },
   { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61577997013762' },
   { name: 'Instagram', href: 'https://www.instagram.com/brandsocia/' }
