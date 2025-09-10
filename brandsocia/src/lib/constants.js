@@ -29,6 +29,7 @@ export const SOCIAL_LINKS = [
 ]
 
 export const COMPANY_INFO = {
+  name: 'BrandSocia',
   logo: '/WhatsApp_Image_2025-07-01_at_17.12.43_38099a7e-removebg-preview.png',
   email: 'contact@brandsocia.com',
   phone: '+92 328 3389247',

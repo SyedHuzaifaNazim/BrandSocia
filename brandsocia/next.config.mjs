@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    // appDir: true,
   },
   images: {
     domains: ['brandsocia.com', 'via.placeholder.com', 'images.unsplash.com','images.freepik.com','aceternity.com'],
