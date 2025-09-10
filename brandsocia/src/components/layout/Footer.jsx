@@ -327,7 +327,7 @@ export default function Footer() {
           className="border-t border-orange-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-orange-300 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
+           {COMPANY_INFO.name} &copy; {new Date().getFullYear()}. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-orange-300 hover:text-white transition-colors text-sm hover:underline">Privacy Policy</a>
