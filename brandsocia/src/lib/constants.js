@@ -1,8 +1,3 @@
-import { TwitterOutlined } from "@ant-design/icons";
-// import { LinkedInOutlined } from "@ant-design/icons";
-import {  FacebookOutlined } from "@ant-design/icons";
-import { InstagramOutlined } from "@ant-design/icons";
-
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -24,8 +19,8 @@ export const SERVICES = [
 export const SOCIAL_LINKS = [
   { name: 'Twitter', href: '#', icon: <TwitterOutlined /> },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/brand-socia/' },
-  { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61577997013762', icon: <FacebookOutlined /> },
-  { name: 'Instagram', href: 'https://www.instagram.com/brandsocia/', icon: <InstagramOutlined /> }
+  { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61577997013762' },
+  { name: 'Instagram', href: 'https://www.instagram.com/brandsocia/' }
 ]
 
 export const COMPANY_INFO = {

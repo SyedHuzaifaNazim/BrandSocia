@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.6.1",
     "@next/font": "^14.2.15",
     "@react-google-maps/api": "^2.20.7",
     "@tabler/icons-react": "^3.34.1",
