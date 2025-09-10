@@ -42,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
+              <span className="bg-clip-text text-white bg-gradient-to-r from-primary-400 to-secondary-400">
                 Creative Digital
               </span>
               <br />
