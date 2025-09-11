@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
+import ColorGradientBackground from '@/components/ColorGradientBackground'
+import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 
 export default function Error({
   error,
@@ -13,6 +15,9 @@ export default function Error({
   }, [error])
 
   return (
+    <>
+    <ColorGradientBackground />
+    <AnimatedGradientBackground />
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <div className="text-center p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-6xl font-bold text-red-500 mb-4">Oops!</h1>
@@ -38,5 +43,6 @@ export default function Error({
         </div>
       </div>
     </div>
+    </>
   )
 }

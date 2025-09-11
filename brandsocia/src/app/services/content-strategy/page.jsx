@@ -61,7 +61,7 @@ export default function ContentStrategy() {
       <ColorGradientBackground />
       <AnimatedGradientBackground />
       <Header />
-      <main className="min-h-screen text-white" ref={sectionRef}>
+      <main className="min-h-screen text-white pt-24 pt-16" ref={sectionRef}>
       {/* Hero Section */}
       <motion.div
         className="container mx-auto px-4 py-20"
@@ -82,7 +82,7 @@ export default function ContentStrategy() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-600">
             Content Strategy
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-black mb-8">
             Our content strategies tell compelling brand stories that drive meaningful engagement and establish thought leadership in your industry.
           </p>
           <Button onClick={() => router.push('/contact')} className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700">
@@ -198,7 +198,7 @@ export default function ContentStrategy() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                <p className="text-gray-300">{step.description}</p>
+                <p className="text-black">{step.description}</p>
               </div>
             </motion.div>
           ))}

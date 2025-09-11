@@ -65,10 +65,10 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center"
           >
-            <Button href="/services" variant="primary" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full">
+            <Button onClick={() => window.location.href = '/services'} variant="primary" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full">
               Explore Services
             </Button>
-            <Button href="/contact" variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-white text-white hover:bg-white hover:text-primary-600">
+            <Button onClick={() => window.location.href = '/contact'} variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-white text-white hover:bg-white hover:text-primary-600">
               Get in Touch
             </Button>
           </motion.div>
