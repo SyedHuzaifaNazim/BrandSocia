@@ -4,7 +4,8 @@ export const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' }
+  { href: '/contact', label: 'Contact' },
+  {href: '/admin' , label: 'admin'}
 ]
 
 export const SERVICES = [

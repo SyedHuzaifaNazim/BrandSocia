@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <motion.div 
+      {/* <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isVideoLoaded ? 1 : 0, y: isVideoLoaded ? 0 : 20 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
@@ -93,7 +93,7 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   )
 }

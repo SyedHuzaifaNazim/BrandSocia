@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import {Card} from '@/components/ui/Card'
 import {Button} from '@/components/ui/Button'
-import Header from '@/components/layout/Header'
+import Header from '@/components/layout/HeaderTwo'
 import Footer from '@/components/layout/Footer'
 import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
