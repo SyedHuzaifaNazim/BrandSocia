@@ -1,5 +1,5 @@
 'use client';
-
+import PricingTwo from '@/components/sections/PricingTwo';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
@@ -323,7 +323,10 @@ export default function WebDevelopment() {
             ))}
           </div>
         </motion.div>
-        
+
+  <motion.div className='container mx-auto px-4 py-16'>
+    <PricingTwo />
+  </motion.div>        
 {/* CTA Section */}
 <motion.div 
   className="container mx-auto px-4 py-16"

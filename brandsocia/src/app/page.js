@@ -4,15 +4,14 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header'
 import Hero from '@/components/sections/Hero'
-import ServicesSection from '@/components/sections/ServicesSection'
+import ServicesCard from '@/components/sections/ServiceCard'
 import PortfolioPreview from '@/components/sections/PortfolioPreview'
 import BlogPreview from '@/components/sections/BlogPreview'
 import ContactCTA from '@/components/sections/ContactCTA'
 import Footer from '@/components/layout/Footer'
 import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
-import Error from '@/app/error'
-
+import IntroContent from '@/components/sections/IntroContent';
 // Animation variants for page sections
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -45,6 +44,7 @@ export default function Home() {
         variants={fadeInUp} 
         transition={{ duration: 0.6 }}
       >
+        <IntroContent />
         <Hero />
       </motion.div>
       
@@ -52,7 +52,7 @@ export default function Home() {
         variants={fadeInUp} 
         transition={{ duration: 0.6, delay: 0.1 }}
       >
-        <ServicesSection />
+        <BlogPreview />
       </motion.div>
       
       <motion.div 
@@ -66,7 +66,7 @@ export default function Home() {
         variants={fadeInUp} 
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <BlogPreview />
+        <ServicesCard />
       </motion.div>
       
       <motion.div 
