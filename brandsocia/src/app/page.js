@@ -46,8 +46,8 @@ export default function Home() {
         variants={fadeInUp} 
         transition={{ duration: 0.6 }}
       >
-        <IntroContent />
         <Hero />
+        <IntroContent />
       </motion.div>
       
       <motion.div 
