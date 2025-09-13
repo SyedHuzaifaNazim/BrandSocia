@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 
-// Using alternative image platforms instead of Unsplash
-// Sources: Pexels, Pixabay, Burst by Shopify :cite[2]:cite[5]
+// Blog posts data
 const posts = [
   {
     id: 1,
@@ -15,14 +15,8 @@ const posts = [
     date: 'April 15, 2023',
     author: 'Sarah Johnson',
     category: 'Social Media',
-    // Using Pexels as Unsplash alternative :cite[2]:cite[5]
     image: {
       src: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg',
-      srcset: `
-        https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
-        https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800 800w,
-        https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w
-      `,
       alt: 'Team collaboration meeting',
       aspectRatio: '16/9'
     },
@@ -36,15 +30,9 @@ const posts = [
     date: 'March 28, 2023',
     author: 'Michael Chen',
     category: 'Branding',
-    // Using Burst by Shopify as Unsplash alternative :cite[2]:cite[5]
     image: {
-      src: 'https://burst.shopifycdn.com/photos/abstract-brand-identity.jpg',
-      srcset: `
-        https://burst.shopifycdn.com/photos/abstract-brand-identity.jpg?width=400 400w,
-        https://burst.shopifycdn.com/photos/abstract-brand-identity.jpg?width=800 800w,
-        https://burst.shopifycdn.com/photos/abstract-brand-identity.jpg?width=1200 1200w
-      `,
-      alt: 'Abstract brand identity design',
+      src: 'https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg',
+      alt: 'Creative branding and design elements',
       aspectRatio: '4/3'
     },
     readTime: '7 min read',
@@ -57,14 +45,8 @@ const posts = [
     date: 'March 10, 2023',
     author: 'Alex Rivera',
     category: 'Design',
-    // Using Pixabay as Unsplash alternative :cite[2]:cite[5]
     image: {
-      src: 'https://cdn.pixabay.com/photo/2021/02/08/15/44/mobile-phone-5994625_1280.jpg',
-      srcset: `
-        https://cdn.pixabay.com/photo/2021/02/08/15/44/mobile-phone-5994625_640.jpg 640w,
-        https://cdn.pixabay.com/photo/2021/02/08/15/44/mobile-phone-5994625_1280.jpg 1280w,
-        https://cdn.pixabay.com/photo/2021/02/08/15/44/mobile-phone-5994625_1920.jpg 1920w
-      `,
+      src: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg',
       alt: 'Mobile phone interface design',
       aspectRatio: '16/9'
     },
@@ -73,36 +55,26 @@ const posts = [
   }
 ];
 
+// Fallback images
+const fallbackImages = {
+  1: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+  2: 'https://burst.shopifycdn.com/photos/working-on-brand-design.jpg',
+  3: 'https://cdn.pixabay.com/photo/2020/05/18/16/17/social-media-5187243_1280.png'
+};
+
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const cardVariants = {
   hidden: { y: 50, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 12,
-    },
-  },
-  hover: {
-    y: -10,
-    transition: {
-      type: 'spring',
-      stiffness: 400,
-      damping: 10,
-    },
-  },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100, damping: 12 } },
+  hover: { y: -10, transition: { type: 'spring', stiffness: 400, damping: 10 } },
 };
 
 export default function BlogPreview() {
@@ -121,59 +93,41 @@ export default function BlogPreview() {
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
   }, []);
 
   const handleImageError = (postId) => {
-    setImageErrors(prev => ({ ...prev, [postId]: true }));
-  };
-
-  // Fallback images in case the primary sources fail
-  const fallbackImages = {
-    1: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
-    2: 'https://burst.shopifycdn.com/photos/working-on-brand-design.jpg',
-    3: 'https://cdn.pixabay.com/photo/2020/05/18/16/17/social-media-5187243_1280.png'
+    setImageErrors((prev) => ({ ...prev, [postId]: true }));
   };
 
   return (
-    <section 
-      ref={sectionRef}
-      className="py-24 relative overflow-hidden"
-    >
+    <section ref={sectionRef} className="py-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.5 }}
           className="absolute right-[10%] top-[20%] h-64 w-64 rounded-full bg-primary-100/20 blur-xl"
-        ></motion.div>
-        <motion.div 
+        />
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.5, delay: 0.2 }}
           className="absolute left-[15%] bottom-[10%] h-48 w-48 rounded-full bg-secondary-100/20 blur-xl"
-        ></motion.div>
+        />
       </div>
 
       <div className="container mx-auto px-4">
-        {/* Header section */}
-        <motion.div 
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -188,12 +142,12 @@ export default function BlogPreview() {
             Stay updated with the latest insights and trends in digital marketing, design, and brand strategy.
           </p>
         </motion.div>
-        
+
         {/* Blog posts grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
+          animate={isVisible ? 'visible' : 'hidden'}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {posts.map((post, index) => (
@@ -204,32 +158,31 @@ export default function BlogPreview() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Card 
-                className={`overflow-hidden h-full flex flex-col bg-white border-0 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${hoveredIndex === index ? 'ring-2 ring-primary-300' : ''}`}
+              <Card
+                className={`overflow-hidden h-full flex flex-col bg-white border-0 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${
+                  hoveredIndex === index ? 'ring-2 ring-primary-300' : ''
+                }`}
               >
-                {/* Image container - Using responsive image techniques :cite[4]:cite[9] */}
+                {/* Image */}
                 <div className="relative h-56 overflow-hidden rounded-t-xl">
-                  <img
+                  <Image
                     src={imageErrors[post.id] ? fallbackImages[post.id] : post.image.src}
-                    srcSet={post.image.srcset}
                     alt={post.image.alt}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                    className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
+                    fill
+                    className={`object-cover transition-transform duration-700 ease-out ${
                       hoveredIndex === index ? 'scale-105' : 'scale-100'
                     }`}
                     onError={() => handleImageError(post.id)}
-                    style={{ aspectRatio: post.image.aspectRatio }}
+                    priority={index === 0}
                   />
-                  
+
                   {/* Category badge */}
                   <div className="absolute top-4 left-4 z-10">
                     <span className="inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm">
                       {post.category}
                     </span>
                   </div>
-                  
+
                   {/* Read time badge */}
                   <div className="absolute top-4 right-4 z-10">
                     <span className="inline-block rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white shadow-sm">
@@ -237,7 +190,7 @@ export default function BlogPreview() {
                     </span>
                   </div>
                 </div>
-                
+
                 {/* Post content */}
                 <div className="flex flex-col flex-grow p-6">
                   <div className="flex items-center mb-3">
@@ -245,18 +198,16 @@ export default function BlogPreview() {
                     <span className="mx-2 text-gray-300">•</span>
                     <p className="text-sm text-gray-600">{post.author}</p>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-primary-600 line-clamp-2">
                     {post.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-4 flex-grow line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <Button 
-                    href={post.link} 
-                    variant="ghost" 
+
+                  <p className="text-gray-600 mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
+
+                  <Button
+                    href={post.link}
+                    variant="ghost"
                     className="px-0 text-primary-600 hover:text-primary-700 font-medium mt-auto"
                   >
                     Read more →
@@ -266,16 +217,16 @@ export default function BlogPreview() {
             </motion.div>
           ))}
         </motion.div>
-        
+
         {/* CTA button */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button 
-            href="/blog" 
+          <Button
+            href="/blog"
             variant="primary"
             className="px-8 py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300 justify-center"
           >
