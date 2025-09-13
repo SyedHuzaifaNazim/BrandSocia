@@ -12,6 +12,8 @@ import Footer from '@/components/layout/Footer'
 import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 import IntroContent from '@/components/sections/IntroContent';
+import PricingTwo from '@/components/sections/PricingTwo';
+
 // Animation variants for page sections
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -68,6 +70,8 @@ export default function Home() {
       >
         <ServicesCard />
       </motion.div>
+
+        <PricingTwo />
       
       <motion.div 
         variants={fadeInUp} 
