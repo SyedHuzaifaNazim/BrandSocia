@@ -4,7 +4,7 @@ const nextConfig = {
     // appDir: true,
   },
   images: {
-    domains: ['brandsocia.com', 'via.placeholder.com', 'images.unsplash.com','images.freepik.com','aceternity.com'],
+    domains: ['brandsocia.com', 'via.placeholder.com', 'images.unsplash.com','img.freepik.com','aceternity.com','logoipsum.com','static.thenounproject.com'],
     unoptimized: true, // Add this if you're having image optimization issues
   },
 }
