@@ -182,7 +182,7 @@ export default function BlogPreview() {
             Latest Insights
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-            From Our Blog
+            Our Thoughts
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Stay updated with the latest insights and trends in digital marketing, design, and brand strategy.
@@ -277,7 +277,7 @@ export default function BlogPreview() {
           <Button 
             href="/blog" 
             variant="primary"
-            className="px-8 py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300"
+            className="px-8 py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300 justify-center"
           >
             View All Posts
           </Button>

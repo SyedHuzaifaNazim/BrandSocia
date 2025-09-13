@@ -8,35 +8,27 @@ import { Button } from '@/components/ui/Button';
 const projects = [
   {
     id: 1,
-    title: 'Nexus Tech Brand Identity',
+    title: 'TaxFilerz',
     category: 'Branding',
-    image: '/images/portfolio/project1.jpg',
-    link: '/portfolio/project1',
-    description: 'Complete brand overhaul for an emerging tech startup, including logo design, color palette, and brand guidelines.',
+    image: '/companies/cropped-cropped-logo-with-blue-and-white-1-2-300x287-removebg-preview.png',
+    link: 'https://taxfilerz.com/',
+    description: 'TaxFilerz is a tax preparation software that helps individuals and businesses file their taxes online. It provides a user-friendly interface, automated tax calculations, and secure data storage. TaxFilerz is trusted by millions of users around the world.',
   },
   {
     id: 2,
-    title: 'Luxe Boutique E-commerce',
+    title: 'Mz Associates',
     category: 'Web Design',
-    image: '/images/portfolio/project2.jpg',
-    link: '/portfolio/project2',
-    description: 'Conversion-focused redesign for a luxury fashion retailer, resulting in 45% increase in online sales.',
+    image: '/companies/Lettermark_Logo_with_Interlinked_Circles-removebg-preview.png',
+    link: 'https://mzassociatee.com/',
+    description: 'Mz Associates is a leading provider of business solutions to small and medium-sized enterprises. We offer a range of services, including business planning, tax preparation, and business consulting. Mz Associates is committed to helping our clients achieve their business goals.',
   },
   {
     id: 3,
-    title: 'EcoLife Campaign Series',
+    title: 'Sasti Shopping',
     category: 'Marketing',
     image: '/images/portfolio/project3.jpg',
-    link: '/portfolio/project3',
-    description: 'Multi-platform social media campaign that increased brand engagement by 78% and drove 10k+ new followers.',
-  },
-  {
-    id: 4,
-    title: 'HealthTrack Mobile App',
-    category: 'UI/UX',
-    image: '/images/portfolio/project4.jpg',
-    link: '/portfolio/project4',
-    description: 'Intuitive health tracking application with seamless user experience and accessibility-focused design.',
+    link: 'https://sastishopping.shop/',
+    description: 'Sasti Shopping is an e-commerce platform that offers a wide range of products to customers. We have a user-friendly interface, secure payment gateways, and fast delivery services. Sasti Shopping is trusted by millions of customers around the world.',
   },
 ];
 
@@ -238,18 +230,18 @@ export default function PortfolioPreview() {
                 className="px-8 py-4 rounded-xl group"
               >
                 View Full Portfolio
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg className="w-3 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /> */}
                 </svg>
               </Button>
-              <Button 
+              {/* <Button 
                 href="/contact" 
                 variant="outline" 
                 size="lg"
                 className="px-8 py-4 rounded-xl border-2"
               >
                 Start a Project
-              </Button>
+              </Button> */}
             </div>
           </div>
         </motion.div>
