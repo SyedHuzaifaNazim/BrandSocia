@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-                <Script id="tawk-to" strategy="afterInteractive">
+        <script id="tawk-to" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
               s0.parentNode.insertBefore(s1,s0);
             })();
           `}
-        </Script>
+        </script>
       </body>
     </html>
   );
