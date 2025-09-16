@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Blog posts data
 const posts = [
@@ -21,7 +22,7 @@ const posts = [
       aspectRatio: '16/9'
     },
     readTime: '5 min read',
-    link: '/blog/social-media-trends'
+    link: '/blog/social-media-trends-2023'
   },
   {
     id: 2,
@@ -36,7 +37,7 @@ const posts = [
       aspectRatio: '4/3'
     },
     readTime: '7 min read',
-    link: '/blog/brand-identity'
+    link: '/blog/building-brand-identity'
   },
   {
     id: 3,
@@ -51,7 +52,7 @@ const posts = [
       aspectRatio: '16/9'
     },
     readTime: '4 min read',
-    link: '/blog/mobile-first'
+    link: '/blog/mobile-first-design'
   }
 ];
 
@@ -158,62 +159,63 @@ export default function BlogPreview() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Card
-                className={`overflow-hidden h-full flex flex-col bg-white border-0 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${
-                  hoveredIndex === index ? 'ring-2 ring-primary-300' : ''
-                }`}
-              >
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden rounded-t-xl">
-                  <Image
-                    src={imageErrors[post.id] ? fallbackImages[post.id] : post.image.src}
-                    alt={post.image.alt}
-                    fill
-                    className={`object-cover transition-transform duration-700 ease-out ${
-                      hoveredIndex === index ? 'scale-105' : 'scale-100'
-                    }`}
-                    onError={() => handleImageError(post.id)}
-                    priority={index === 0}
-                  />
+              <Link href={post.link}>
+                <Card
+                  className={`overflow-hidden h-full flex flex-col bg-white border-0 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${
+                    hoveredIndex === index ? 'ring-2 ring-primary-300' : ''
+                  }`}
+                >
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden rounded-t-xl">
+                    <Image
+                      src={imageErrors[post.id] ? fallbackImages[post.id] : post.image.src}
+                      alt={post.image.alt}
+                      fill
+                      className={`object-cover transition-transform duration-700 ease-out ${
+                        hoveredIndex === index ? 'scale-105' : 'scale-100'
+                      }`}
+                      onError={() => handleImageError(post.id)}
+                      priority={index === 0}
+                    />
 
-                  {/* Category badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm">
-                      {post.category}
-                    </span>
+                    {/* Category badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm">
+                        {post.category}
+                      </span>
+                    </div>
+
+                    {/* Read time badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <span className="inline-block rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white shadow-sm">
+                        {post.readTime}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Read time badge */}
-                  <div className="absolute top-4 right-4 z-10">
-                    <span className="inline-block rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white shadow-sm">
-                      {post.readTime}
-                    </span>
+                  {/* Post content */}
+                  <div className="flex flex-col flex-grow p-6">
+                    <div className="flex items-center mb-3">
+                      <p className="text-sm text-primary-600 font-medium">{post.date}</p>
+                      <span className="mx-2 text-gray-300">•</span>
+                      <p className="text-sm text-gray-600">{post.author}</p>
+                    </div>
+
+                    <h3 className="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-primary-600 line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-gray-600 mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
+
+                    <Button
+                      variant="ghost"
+                      className="px-0 text-primary-600 hover:text-primary-700 font-medium mt-auto"
+                    >
+                      Read more →
+                    </Button>
                   </div>
-                </div>
-
-                {/* Post content */}
-                <div className="flex flex-col flex-grow p-6">
-                  <div className="flex items-center mb-3">
-                    <p className="text-sm text-primary-600 font-medium">{post.date}</p>
-                    <span className="mx-2 text-gray-300">•</span>
-                    <p className="text-sm text-gray-600">{post.author}</p>
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-primary-600 line-clamp-2">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-gray-600 mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
-
-                  <Button
-                    href={post.link}
-                    variant="ghost"
-                    className="px-0 text-primary-600 hover:text-primary-700 font-medium mt-auto"
-                  >
-                    Read more →
-                  </Button>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -225,13 +227,14 @@ export default function BlogPreview() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button
-            href="/blog"
-            variant="primary"
-            className="px-8 py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300 justify-center"
-          >
-            View All Posts
-          </Button>
+          <Link href="/blog">
+            <Button
+              variant="primary"
+              className="px-8 py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300 justify-center"
+            >
+              View All Posts
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>

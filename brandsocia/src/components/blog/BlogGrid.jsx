@@ -5,6 +5,7 @@ const posts = [
     title: '10 Social Media Trends for 2023',
     excerpt: 'Discover the latest social media trends that will shape your marketing strategy this year.',
     date: 'April 15, 2023',
+    id: 'social-media-trends-2023',
     slug: 'social-media-trends-2023',
     image: 'https://images.pexels.com/photos/267399/pexels-photo-267399.jpeg'
   },
@@ -12,6 +13,7 @@ const posts = [
     title: 'How to Build a Strong Brand Identity',
     excerpt: 'Learn the key elements of a compelling brand identity that resonates with your audience.',
     date: 'March 28, 2023',
+    id: 'building-brand-identity',
     slug: 'building-brand-identity',
     image: 'https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg'
   },
@@ -19,6 +21,7 @@ const posts = [
     title: 'The Importance of Mobile-First Design',
     excerpt: 'Why mobile optimization should be a priority for every business in the digital age.',
     date: 'March 10, 2023',
+    id: 'mobile-first-design',
     slug: 'mobile-first-design',
     image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg'
   },
@@ -41,6 +44,7 @@ const posts = [
     excerpt: 'Tips and strategies for creating effective email marketing campaigns.',
     date: 'January 30, 2023',
     slug: 'email-marketing-best-practices',
+    id: 'email-marketing-best-practices',
     image: 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg'
   }
 ]
