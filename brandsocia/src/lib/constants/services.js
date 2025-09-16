@@ -8,6 +8,7 @@ export const services = [
     icon: '💻',
     color: 'from-blue-500 to-cyan-500',
     slug: 'web-development',
+    logo: 'https://images.unsplash.com/photo-1637937459053-c788742455be?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
     title: 'Social Media Marketing',
@@ -16,7 +17,8 @@ export const services = [
     features: ['Strategy Development', 'Content Creation', 'Community Management', 'Performance Analytics'],
     icon: '📱',
     color: 'from-purple-500 to-pink-500',
-    slug: 'social-media-marketing'
+    slug: 'social-media-marketing',
+    logo: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
     title: 'Content Strategy',
@@ -25,7 +27,8 @@ export const services = [
     features: ['Content Planning', 'Copywriting', 'Blog Management', 'Content Promotion'],
     icon: '📝',
     color: 'from-amber-500 to-orange-500',
-    slug: 'content-strategy'
+    slug: 'content-strategy',
+    logo: 'https://images.unsplash.com/photo-1676287569661-5f2836a91c64?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
     title: 'Brand Identity',

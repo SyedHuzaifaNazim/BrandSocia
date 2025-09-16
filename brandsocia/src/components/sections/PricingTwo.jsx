@@ -401,7 +401,7 @@ export default function PricingSection() {
   };
 
   return (
-    <section className="relative py-16 bg-cover bg-center bg-no-repeat  rounded-md" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149007169.jpg?t=st=1757746781~exp=1757750381~hmac=cd57f99ccb1240cf00f2ffe16cf7b3455856f95c423a982e58f0f2a6df5a7618&w=1480')" }}>
+    <section className="relative py-16 bg-cover bg-center bg-no-repeat  rounded-md" > 
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-transparent"></div>
       

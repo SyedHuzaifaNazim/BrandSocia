@@ -37,7 +37,7 @@ const blogPosts = {
     title: 'How to Build a Strong Brand Identity',
     date: 'March 28, 2023',
     author: 'BrandSocia',
-    image: 'https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
+    image: 'https://img.freepik.com/premium-photo/low-angle-view-text-diary-table_1048944-11879979.jpg?w=1480',
     content: `
       <p>A strong brand identity is crucial for standing out in today's competitive market. It's more than just a logo—it's the entire experience your customers have with your company. Here's how to build a compelling brand identity:</p>
       

@@ -249,7 +249,7 @@ export default function Footer() {
               <div className="mt-8">
                 <h5 className="text-lg font-medium mb-4 text-orange-200">Join our newsletter</h5>
                 <p className="text-sm text-orange-300/80 mb-6 leading-relaxed">
-                  Stay updated with our latest news and offers. We'll send our newsletters from {newsletterSenderEmail}
+                  Stay updated with our latest news and offers.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md">
                   <div className="relative">
