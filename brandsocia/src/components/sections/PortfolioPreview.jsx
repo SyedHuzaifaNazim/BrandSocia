@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -170,16 +171,17 @@ export default function PortfolioPreview() {
                   
                   {/* Hover Action Button */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Button 
-                      variant="outline" 
-                      className="border-2 border-white text-white bg-black/20 backdrop-blur-sm hover:bg-white hover:text-black transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
-                      href={project.link}
-                    >
-                      View Case Study
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Button>
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button 
+                        variant="outline" 
+                        className="border-2 border-white text-white bg-black/20 backdrop-blur-sm hover:bg-white hover:text-black transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
+                      >
+                        View Case Study
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 
@@ -223,17 +225,18 @@ export default function PortfolioPreview() {
               Let's discuss how we can bring your vision to life with our expertise in design and development.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                href="/portfolio" 
-                variant="primary" 
-                size="lg"
-                className="px-8 py-4 rounded-xl group"
-              >
-                View Full Portfolio
-                <svg className="w-3 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /> */}
-                </svg>
-              </Button>
+              <Link href="/portfolio">
+                <Button 
+                  variant="primary" 
+                  size="lg"
+                  className="px-8 py-4 rounded-xl group"
+                >
+                  View Full Portfolio
+                  <svg className="w-3 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /> */}
+                  </svg>
+                </Button>
+              </Link>
               {/* <Button 
                 href="/contact" 
                 variant="outline" 
