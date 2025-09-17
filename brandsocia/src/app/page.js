@@ -13,6 +13,7 @@ import ColorGradientBackground from '@/components/ColorGradientBackground'
 import AnimatedGradientBackground from '@/components/AnimatedGradientBackground'
 import IntroContent from '@/components/sections/IntroContent';
 import PricingTwo from '@/components/sections/PricingTwo';
+import Testimonials from '@/components/sections/Testimonials';
 
 // Animation variants for page sections
 const fadeInUp = {
@@ -77,6 +78,7 @@ export default function Home() {
         variants={fadeInUp} 
         transition={{ duration: 0.6, delay: 0.4 }}
       >
+        <Testimonials />
         <ContactCTA />
       </motion.div>
       {/* <Error /> */}
