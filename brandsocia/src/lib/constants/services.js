@@ -8,7 +8,8 @@ export const services = [
     icon: '💻',
     color: 'from-blue-500 to-cyan-500',
     slug: 'web-development',
-    logo: 'https://images.unsplash.com/photo-1637937459053-c788742455be?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    logo: 'https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$1,500+'
   },
   {
     title: 'Social Media Marketing',
@@ -18,7 +19,8 @@ export const services = [
     icon: '📱',
     color: 'from-purple-500 to-pink-500',
     slug: 'social-media-marketing',
-    logo: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    logo: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$800/mo'
   },
   {
     title: 'Content Strategy',
@@ -28,7 +30,8 @@ export const services = [
     icon: '📝',
     color: 'from-amber-500 to-orange-500',
     slug: 'content-strategy',
-    logo: 'https://images.unsplash.com/photo-1676287569661-5f2836a91c64?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    logo: 'https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$1,200+'
   },
   {
     title: 'Brand Identity',
@@ -37,7 +40,9 @@ export const services = [
     features: ['Logo Design', 'Brand Guidelines', 'Visual Assets', 'Brand Applications'],
     icon: '🎨',
     color: 'from-green-500 to-teal-500',
-    slug: 'brand-identity'
+    slug: 'brand-identity',
+    logo: 'https://images.unsplash.com/photo-1567446537738-05b6ff6f58f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$900+'
   },
   {
     title: 'Graphic Designing',
@@ -46,7 +51,9 @@ export const services = [
     features: ['Logo Design', 'Brochures & Flyers', 'Business Cards', 'Social Media Graphics'],
     icon: '✏️',
     color: 'from-violet-500 to-purple-500',
-    slug: 'graphic-designing'
+    slug: 'graphic-designing',
+    logo: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$600+'
   },
   {
     title: 'SEO Optimization',
@@ -55,7 +62,9 @@ export const services = [
     features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Performance Reporting'],
     icon: '🔍',
     color: 'from-indigo-500 to-blue-500',
-    slug: 'seo'
+    slug: 'seo',
+    logo: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$750/mo'
   },
   {
     title: 'E-commerce Solutions',
@@ -64,7 +73,9 @@ export const services = [
     features: ['Store Setup', 'Product Management', 'Payment Integration', 'Conversion Optimization'],
     icon: '🛒',
     color: 'from-red-500 to-rose-500',
-    slug: 'ecommerce-solutions'
+    slug: 'ecommerce-solutions',
+    logo: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    price: '$2,500+'
   }
 ];
 

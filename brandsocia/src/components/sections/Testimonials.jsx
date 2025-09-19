@@ -10,7 +10,7 @@ const testimonials = [
     name: "Sheikh Azmat Ali",
     role: "Director",
     company: "TaxFilerz & Co.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    image: "https://brandsocia.com/wp-content/uploads/2025/07/IMG-20250322-WA0005-e1742638883520-1.jpg",
     content: "Working with this team has been transformative for our business. Their innovative approach and dedication to excellence have helped us achieve remarkable results."
   },
   {
@@ -18,7 +18,7 @@ const testimonials = [
     name: "Subyyil Fahim",
     role: "Manager",
     company: "Apna Ghar Apni Zameen",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    image: "https://brandsocia.com/wp-content/uploads/2025/07/IMG-20250322-WA0004-e1742639040613.jpg",
     content: "The level of professionalism and creativity they bring to the table is unmatched. Our social media presence has grown exponentially since partnering with them."
   },
   {
@@ -26,7 +26,7 @@ const testimonials = [
     name: "Muhammad Zeeshan",
     role: "High Court Advocate",
     company: "MZ Associates",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    image: "https://taxfilerz.com/wp-content/uploads/2025/03/memonm.jpeg",
     content: "Their strategic insights and attention to detail have been invaluable. They truly understand our brand vision and consistently deliver outstanding results."
   }
 ];
@@ -35,21 +35,33 @@ const TestimonialCard = ({ testimonial }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ 
+      scale: 1.05,
+      backgroundColor: "#FFA500",
+      color: "white",
+      transition: { duration: 0.3 }
+    }}
     transition={{ duration: 0.5 }}
-    className="bg-white rounded-xl shadow-lg p-8 relative"
+    className="bg-white rounded-xl shadow-lg p-8 relative cursor-pointer transform transition-all duration-300 hover:shadow-2xl"
   >
-    <FaQuoteLeft className="text-4xl text-blue-500 mb-4" />
-    <p className="text-gray-600 italic mb-6">{testimonial.content}</p>
+    <motion.div
+      whileHover={{ rotate: 360 }}
+      transition={{ duration: 0.5 }}
+    >
+      <FaQuoteLeft className="text-4xl text-orange-500 mb-4 group-hover:text-white" />
+    </motion.div>
+    <p className="italic mb-6 transition-colors duration-300 group-hover:text-white">{testimonial.content}</p>
     <div className="flex items-center">
-      <img
+      <motion.img
+        whileHover={{ scale: 1.2 }}
         src={testimonial.image}
         alt={testimonial.name}
         className="w-12 h-12 rounded-full mr-4"
       />
       <div>
-        <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-        <p className="text-gray-500">{testimonial.role}</p>
-        <p className="text-blue-500">{testimonial.company}</p>
+        <h4 className="font-semibold text-lg transition-colors duration-300">{testimonial.name}</h4>
+        <p className="transition-colors duration-300">{testimonial.role}</p>
+        <p className="text-orange-500 transition-colors duration-300 hover:text-white">{testimonial.company}</p>
       </div>
     </div>
   </motion.div>
